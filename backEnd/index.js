@@ -38,5 +38,38 @@ app.use(cors());
 
 app.get('/', (req, res) => res.send('Hello World!')) //prints message on load
 
+// sign up
+app.post('/signUp', (req,res)=>{ // this is for create
+  User.findOne({username:req.body.username},(err,userResult)=>{   //checking if user is found in the db already
+    if (userResult){
+      res.send('username already exists. Please try another one');
+    } else{
+       const hash = bcryptjs.hashSync(req.body.password); //hash the password
+       const user = new User({
+         _id : new mongoose.Types.ObjectId,
+         username : req.body.username,
+         email : req.body.email,
+         password :hash,
+         admin : req.body.admin,
+       });
+       //save to database and notify the user accordingly
+       user.save().then(result =>{
+         res.send(result);
+       }).catch(err => res.send(err));
+    } // end else
+  }) // end user.findone
+}); //end user
+
+// log in 
+
+// log out
+
+// view all
+
+// edit/update
+
+// delete
+
+
 //keep this always at the bottom so that you can see the errors reported
 app.listen(port, () => console.log(`Mongodb app listening on port ${port}!`))
