@@ -5,13 +5,13 @@ const bodyParser = require('body-parser'); //to parse all data coming from the u
 const cors = require('cors'); //to include cross orgin request
 const bcryptjs = require('bcryptjs');//to hash and compare password in an encrypted method
 const config = require('./config.json');//has credentials
-// const User = require('./models/users.js'); //this refers to the structure for user ojects
-// const Product = require('./models/products.js'); //this refers to the structure for product ojects
+const User = require('./models/user.js'); //this refers to the structure for user ojects
+const Item = require('./models/item.js'); //this refers to the structure for product ojects
 
 const port = 3000; //set server port
 
 //connect to db
-const mongodbURI = `mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASSWORD}@${config.MONGO_CLUSTER_NAME}-rrqoe.mongodb.net/Products?retryWrites=true&w=majority`; //set what mongoDb to look at (set which collection with word after mongodeb.net/)
+const mongodbURI = `mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASSWORD}@${config.MONGO_CLUSTER_NAME}.mongodb.net/formative3-2db?retryWrites=true&w=majority`; //set what mongoDb to look at (set which collection with word after mongodeb.net/)
 mongoose.connect(mongodbURI, {useNewUrlParser: true, useUnifiedTopology: true}) // connect to above
 .then(()=> console.log('DB connected!')) //success message
 .catch(err =>{ //error catch
