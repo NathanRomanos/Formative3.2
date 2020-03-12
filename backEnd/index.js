@@ -5,13 +5,13 @@ const bodyParser = require('body-parser'); //to parse all data coming from the u
 const cors = require('cors'); //to include cross orgin request
 const bcryptjs = require('bcryptjs');//to hash and compare password in an encrypted method
 const config = require('./config.json');//has credentials
-// const User = require('./models/users.js'); //this refers to the structure for user ojects
-// const Product = require('./models/products.js'); //this refers to the structure for product ojects
+const User = require('./models/user.js'); //this refers to the structure for user ojects
+const Item = require('./models/item.js'); //this refers to the structure for product ojects
 
 const port = 3000; //set server port
 
 //connect to db
-const mongodbURI = `mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASSWORD}@${config.MONGO_CLUSTER_NAME}-rrqoe.mongodb.net/Products?retryWrites=true&w=majority`; //set what mongoDb to look at (set which collection with word after mongodeb.net/)
+const mongodbURI = `mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASSWORD}@${config.MONGO_CLUSTER_NAME}.mongodb.net/formative3-2db?retryWrites=true&w=majority`; //set what mongoDb to look at (set which collection with word after mongodeb.net/)
 mongoose.connect(mongodbURI, {useNewUrlParser: true, useUnifiedTopology: true}) // connect to above
 .then(()=> console.log('DB connected!')) //success message
 .catch(err =>{ //error catch
@@ -37,6 +37,39 @@ app.use(bodyParser.urlencoded({extended:false})); // for creating encrypted pass
 app.use(cors());
 
 app.get('/', (req, res) => res.send('Hello World!')) //prints message on load
+
+// sign up
+app.post('/signUp', (req,res)=>{ // this is for create
+  User.findOne({username:req.body.username},(err,userResult)=>{   //checking if user is found in the db already
+    if (userResult){
+      res.send('username already exists. Please try another one');
+    } else{
+       const hash = bcryptjs.hashSync(req.body.password); //hash the password
+       const user = new User({
+         _id : new mongoose.Types.ObjectId,
+         username : req.body.username,
+         email : req.body.email,
+         password :hash,
+         admin : req.body.admin,
+       });
+       //save to database and notify the user accordingly
+       user.save().then(result =>{
+         res.send(result);
+       }).catch(err => res.send(err));
+    } // end else
+  }) // end user.findone
+}); //end user
+
+// log in 
+
+// log out
+
+// view all
+
+// edit/update
+
+// delete
+
 
 //keep this always at the bottom so that you can see the errors reported
 app.listen(port, () => console.log(`Mongodb app listening on port ${port}!`))
