@@ -11,7 +11,7 @@ const config = require('./config.json');//has credentials
 const port = 3000; //set server port
 
 //connect to db
-const mongodbURI = `mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASSWORD}@${config.MONGO_CLUSTER_NAME}-rrqoe.mongodb.net/Products?retryWrites=true&w=majority`; //set what mongoDb to look at (set which collection with word after mongodeb.net/)
+const mongodbURI = `mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASSWORD}@${config.MONGO_CLUSTER_NAME}.mongodb.net/Products?retryWrites=true&w=majority`; //set what mongoDb to look at (set which collection with word after mongodeb.net/)
 mongoose.connect(mongodbURI, {useNewUrlParser: true, useUnifiedTopology: true}) // connect to above
 .then(()=> console.log('DB connected!')) //success message
 .catch(err =>{ //error catch
@@ -27,7 +27,7 @@ db.once('open', function() { // on open do this once
 
 //sets request format??
 app.use((req,res,next)=>{
-  console.log(`${req.method} request for ${req.url}`); //missed this bit but keep it 
+  console.log(`${req.method} request for ${req.url}`); //missed this bit but keep it
   next();//include this to go to the next middleware
 });
 
