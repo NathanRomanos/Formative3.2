@@ -1,6 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.background-1 {
+  background-color: #333;
+  color: darkgrey;
+}
+
+.background-2 {
+  background-color: grey;
+  color: #333;
+}
+
+.background-3 {
+  background-color: darkgrey;
+}
+
+.text-heading {
+  font-size: 2rem;
+}
+
+.text-medium {
+  font-size: 1.4rem;
+}
+
+.home-nav {
+  height: 10vh;
+  width: 100%;
+  position: relative;
+}
+.home-nav .logo {
+  height: 8vh;
+  width: 18vw;
+  position: absolute;
+  top: 1vh;
+  left: 1vw;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.home-nav .view-users-btn {
+  padding: 1vh 1vw;
+  position: absolute;
+  top: 2vh;
+  right: 10vw;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.home-nav .profile-btn {
+  height: 8vh;
+  width: 8vh;
+  position: absolute;
+  top: 1vh;
+  right: 1vw;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.home-container {
+  margin-top: 10vh;
+  padding: 0 2vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.home-card {
+  width: 25vw;
+  height: 28vw;
+  margin-top: 4vh;
+}
+.home-card .home-item {
+  width: 25vw;
+  height: 25vw;
+  position: relative;
+  border-radius: 2rem;
+  background-color: grey;
+  cursor: pointer;
+}
+.home-card .home-item p {
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+  margin: 0;
+}
+.home-card .home-link {
+  width: 40%;
+  height: 2vw;
+  margin: 0.5vw 0;
+}
+
 .profile-img-size {
   width: 150px;
   height: 150px;
+}
+
+.home-item:hover {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.profile-btn:hover, .view-users-btn:hover, .logo:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
 }
 
 /*# sourceMappingURL=style.css.map */
