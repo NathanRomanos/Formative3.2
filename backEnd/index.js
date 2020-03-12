@@ -62,6 +62,21 @@ app.post('/signUp', (req,res)=>{ // this is for create
 
 // log in 
 
+// log in 
+app.post('/loginUser', (req,res)=>{
+  User.findOne({username:req.body.username},(err,userResult)=>{
+    if (userResult){
+      if (bcryptjs.compareSync(req.body.password, userResult.password)){
+        res.send(userResult);
+      } else {
+        res.send('not authorized');
+      }//inner if
+    } else {
+       res.send('user not found. Please register');
+    }//outer if
+  });//findOne
+});//post
+
 // log out
 
 // view all
