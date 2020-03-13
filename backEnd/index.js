@@ -62,8 +62,6 @@ app.post('/signUp', (req,res)=>{ // this is for create
 }); //end user
 
 // log in 
-
-// log in 
 app.post('/loginUser', (req,res)=>{
   User.findOne({username:req.body.username},(err,userResult)=>{
     if (userResult){
@@ -78,13 +76,19 @@ app.post('/loginUser', (req,res)=>{
   });//findOne
 });//post
 
+// display users
+
+// delete user
+
 // log out
 
-// view all
+// view all item
 
-// edit/update
+// view items by user
 
-// delete
+// edit/update item
+
+// delete item
 
 
 //keep this always at the bottom so that you can see the errors reported
