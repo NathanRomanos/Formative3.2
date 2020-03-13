@@ -1,11 +1,15 @@
 @import "reset";
 @import "variables";
 @import "styling";
+@import "home";
 
 .home-nav{
   height: 10vh;
   width: 100%;
-  position: relative;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
 
   .logo{
     height: 8vh;
@@ -128,7 +132,7 @@
   height: 50px;
   width: 400px;
   color: white;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 .form-sign-up-email{
@@ -139,7 +143,7 @@
   color: white;
   background: #FFF7ED;
   border-radius: 10px;
-  
+
 }
 
 .form-sign-up-password{
@@ -208,21 +212,21 @@
 
 
 .home-container{
-  margin-top: 10vh;
+  margin-top: 20vh;
   padding: 0 2vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content:  space-around;
 }
 
 .home-card{
-  width: 25vw;
-  height: 28vw;
+  width: 20vw;
+  height: 24vw;
   margin-top: 4vh;
 
   .home-item{
-    width: 25vw;
-    height: 25vw;
+    width: 20vw;
+    height: 20vw;
     position: relative;
     border-radius: 2rem;
     background-color: $color-2;
@@ -294,7 +298,3 @@
 // }
 
 // end of animation for submin button
-
-
-
-

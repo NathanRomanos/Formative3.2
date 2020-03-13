@@ -20,6 +20,11 @@
   background-color: darkgrey;
 }
 
+.background-4 {
+  background-color: white;
+  color: #333;
+}
+
 .text-heading {
   font-size: 2rem;
 }
@@ -28,10 +33,18 @@
   font-size: 1.4rem;
 }
 
+.btn-1 {
+  background-color: #007bff;
+  color: white;
+}
+
 .home-nav {
   height: 10vh;
   width: 100%;
-  position: relative;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 .home-nav .logo {
   height: 8vh;
@@ -51,6 +64,34 @@
   border-radius: 20px;
   cursor: pointer;
 }
+.home-nav .login-btn {
+  padding: 1vh 1vw;
+  position: absolute;
+  top: 2vh;
+  right: 20vw;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.home-nav .sign-up-btn {
+  padding: 1vh 1vw;
+  position: absolute;
+  top: 2vh;
+  right: 10vw;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.home-nav #log-out-btn {
+  padding: 1vh 1vw;
+  position: absolute;
+  top: 2vh;
+  right: 10vw;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+  display: none;
+}
 .home-nav .profile-btn {
   height: 8vh;
   width: 8vh;
@@ -61,22 +102,137 @@
   cursor: pointer;
 }
 
+#sign-up-form input {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+#log-in-form input {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.user-name-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 15%;
+  left: 30%;
+  height: 50px;
+  width: 400px;
+  box-shadow: -12px -12px 12px 0 rgba(58, 58, 58, 0.3), 12px 12px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+.email-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 25%;
+  left: 30%;
+  height: 50px;
+  width: 400px;
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+.password-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 35%;
+  left: 30%;
+  height: 50px;
+  width: 400px;
+}
+
+.form-sign-up-user-name {
+  background: #FFF7ED;
+  padding-left: 20px;
+  height: 50px;
+  width: 400px;
+  color: white;
+  border-radius: 10px;
+}
+
+.form-sign-up-email {
+  position: absolute;
+  padding-left: 20px;
+  height: 50px;
+  width: 400px;
+  color: white;
+  background: #FFF7ED;
+  border-radius: 10px;
+}
+
+.form-sign-up-password {
+  position: absolute;
+  padding-left: 20px;
+  color: white;
+  background: #FFF7ED;
+  height: 50px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+.sign-up-form-btn {
+  background: none;
+  border: none;
+  outline: none;
+  position: absolute;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: white;
+  width: 100px;
+  top: 45%;
+  left: 30%;
+}
+
+.log-in-form-btn {
+  background: none;
+  border: none;
+  outline: none;
+  position: absolute;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: white;
+  width: 100px;
+  top: 35%;
+  left: 30%;
+}
+
+#log-in-container {
+  display: none;
+}
+
+#sign-up-form {
+  display: none;
+}
+
+#home-container {
+  display: none;
+}
+
 .home-container {
-  margin-top: 10vh;
+  margin-top: 20vh;
   padding: 0 2vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .home-card {
-  width: 25vw;
-  height: 28vw;
+  width: 20vw;
+  height: 24vw;
   margin-top: 4vh;
 }
 .home-card .home-item {
-  width: 25vw;
-  height: 25vw;
+  width: 20vw;
+  height: 20vw;
   position: relative;
   border-radius: 2rem;
   background-color: grey;
@@ -105,6 +261,11 @@
 
 .profile-btn:hover, .view-users-btn:hover, .logo:hover {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.sign-up-form-btn:hover, .log-in-form-btn:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  color: #AAF0D1;
 }
 
 /*# sourceMappingURL=style.css.map */
