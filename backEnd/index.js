@@ -50,8 +50,7 @@ app.post('/signUp', (req,res)=>{ // this is for create
          _id : new mongoose.Types.ObjectId,
          username : req.body.username,
          email : req.body.email,
-         password :hash,
-         admin : req.body.admin,
+         password :hash
        });
        //save to database and notify the user accordingly
        user.save().then(result =>{
@@ -61,9 +60,7 @@ app.post('/signUp', (req,res)=>{ // this is for create
   }) // end user.findone
 }); //end user
 
-// log in 
-
-// log in 
+// log in
 app.post('/loginUser', (req,res)=>{
   User.findOne({username:req.body.username},(err,userResult)=>{
     if (userResult){
@@ -78,13 +75,85 @@ app.post('/loginUser', (req,res)=>{
   });//findOne
 });//post
 
+// display users
+
+// delete user
+
 // log out
 
-// view all
+// view all item
+app.get('/viewItem', (req, res)=> {
+  Item.find().then(result => {
+    res.send(result);
+  });
+});
 
-// edit/update
 
-// delete
+//add item
+app.post('/addItem', (req,res)=> {
+ // checking if item is found in the db already
+  Item.findOne({name:req.body.name},(err, itemResult)=> {
+    if (itemResult){
+      res.send('Item is already in database. Please try again!');
+    } else {
+      const addItem = new Item({
+        _id : new mongoose.Types.ObjectId,
+        name : req.body.name,
+        imgUrl : req.body.imgUrl,
+        author : req.body.author,
+        description : req.body.description,
+        link : req.body.link,
+        user_id : req.body.user_id
+      });
+      //save to database and notify the user accordingly
+      addItem.save().then(result => {
+        res.send(result);
+      }).catch(err => res.send(err));
+    }
+  })
+});
+
+
+// view items by user
+app.get('/viewItem/:id', (req, res)=> {
+  const idParam = req.params.user_id;
+  Item.findById(idParam).then(result => {
+    res.send(result);
+  }).catch(err => res.send(err));
+}); // DIDN'T WORK WILL TRY AGAIN WITH ROY
+
+
+// edit/update item
+app.patch('/updateItem/:id',(req,res)=> {
+  const idParam = req.params.id;
+  Item.findById(idParam,(err,item)=> {
+    const updatedItem = {
+      name:req.body.name,
+      imgUrl : req.body.imgUrl,
+      author : req.body.author,
+      description : req.body.description,
+      link : req.body.link
+    };
+    Item.updateOne({_id:idParam}, updatedItem).then(result => {
+      res.send(result);
+    }).catch(err => res.send(err));
+  }).catch(err => res.send('not found'));
+});
+
+// delete item
+app.delete('/deleteItem/:id',(req,res) => {
+  const idParam = req.params.id;
+  Item.findOne({_id:idParam}, (err, item) => { //_id refers to mongodb
+    if (item) {
+      Item.deleteOne({_id:idParam}, err => {
+        res.send('deleted');
+      });
+    } else {
+      res.send('not found');
+    }
+  }).catch(err => res.send(err));
+});
+
 
 
 //keep this always at the bottom so that you can see the errors reported
