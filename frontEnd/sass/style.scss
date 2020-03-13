@@ -1,0 +1,300 @@
+@import "reset";
+@import "variables";
+@import "styling";
+
+.home-nav{
+  height: 10vh;
+  width: 100%;
+  position: relative;
+
+  .logo{
+    height: 8vh;
+    width: 18vw;
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .view-users-btn{
+    padding: 1vh 1vw;
+    position: absolute;
+    top: 2vh;
+    right: 10vw;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .login-btn{
+    padding: 1vh 1vw;
+    position: absolute;
+    top: 2vh;
+    right: 20vw;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .sign-up-btn{
+    padding: 1vh 1vw;
+    position: absolute;
+    top: 2vh;
+    right: 10vw;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+   #log-out-btn{
+    padding: 1vh 1vw;
+    position: absolute;
+    top: 2vh;
+    right: 10vw;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+    display: none;
+  }
+
+  .profile-btn{
+    height: 8vh;
+    width: 8vh;
+    position: absolute;
+    top: 1vh;
+    right: 1vw;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+
+} // home nav ends
+
+// form styling
+// make errors come up testing different styling on errors
+
+ #sign-up-form input{
+  background: none;
+  border: none;
+  outline: none;
+  }
+
+  #log-in-form input{
+  background: none;
+  border: none;
+  outline: none;
+  }
+
+.user-name-container{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 15%;
+  left: 30%;
+  height:50px;
+  width:400px;
+  box-shadow:  -12px -12px 12px 0 rgba(58, 58, 58, 0.3),12px 12px 12px 0 rgba(0,0,0,.2);
+}
+
+.email-container{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 25%;
+  left: 30%;
+  height:50px;
+  width:400px;
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+.password-container{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 35%;
+  left: 30%;
+  height:50px;
+  width:400px;
+  // box-shadow:  -12px -12px 12px 0 rgba(58, 58, 58, 0.3),12px 12px 12px 0 rgba(0,0,0,.2);
+}
+
+.form-sign-up-user-name{
+  background: #FFF7ED;
+  padding-left: 20px;
+  height: 50px;
+  width: 400px;
+  color: white;
+  border-radius: 10px; 
+}
+
+.form-sign-up-email{
+  position: absolute;
+  padding-left: 20px;
+  height: 50px;
+  width: 400px;
+  color: white;
+  background: #FFF7ED;
+  border-radius: 10px;
+  
+}
+
+.form-sign-up-password{
+  position: absolute;
+  padding-left: 20px;
+  color: white;
+  background: #FFF7ED;
+  height: 50px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+.sign-up-form-btn{
+   background: none;
+  border: none;
+  outline: none;
+  position:absolute;
+  border:1px solid #333;
+  border-radius: 10px;
+  color: white;
+  width: 100px;
+  top: 45%;
+  left: 30%;
+  // transform: translate(-25%,-40%);
+}
+
+.log-in-form-btn{
+   background: none;
+  border: none;
+  outline: none;
+  position:absolute;
+  border:1px solid #333;
+  border-radius: 10px;
+  color: white;
+  width: 100px;
+  top: 35%;
+  left: 30%;
+  // transform: translate(-25%,-40%);
+}
+
+
+
+
+
+//end of form styling
+
+
+
+// form / containers display properties
+#log-in-container{
+  display:none;
+}
+
+#sign-up-form{
+  display: none;
+}
+//could have home container display none when forms are clicked
+// when i tried this it made cards go into one colum
+#home-container{
+  display: none;
+}
+
+//end of form / containers display properties
+
+
+
+
+.home-container{
+  margin-top: 10vh;
+  padding: 0 2vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.home-card{
+  width: 25vw;
+  height: 28vw;
+  margin-top: 4vh;
+
+  .home-item{
+    width: 25vw;
+    height: 25vw;
+    position: relative;
+    border-radius: 2rem;
+    background-color: $color-2;
+    cursor: pointer;
+
+    p{
+      position: absolute;
+      bottom: 2%;
+      left: 2%;
+      margin: 0;
+    } // p ends
+
+  } //home item ends
+
+  .home-link{
+    width: 40%;
+    height: 2vw;
+    margin: 0.5vw 0;
+  } // home link ends
+
+} // home card ends
+
+//profile page
+.profile-img-size {
+  width : 150px;
+  height : 150px;
+}
+
+//hovers
+.home-item:hover{
+  // opacity: 0.8;
+  box-shadow: $shadow-1;
+}
+
+.profile-btn:hover, .view-users-btn:hover, .logo:hover{
+  box-shadow: $shadow-2;
+}
+
+.sign-up-form-btn:hover, .log-in-form-btn:hover{
+  box-shadow: $shadow-2;
+  color:#AAF0D1;
+}
+
+
+// animation for submin button
+
+
+//trigger animation have to add and remove class to animate through jquery
+// .submit-btn-animation{
+//   animation: shake 2s ease;
+// }
+
+// @keyframes shake{
+//   0%{
+//     transform: translate(-50%,-50%) rotate(0deg);
+//   }
+//   25%{
+//     transform: translate(-50%,-50%) rotate(3deg);
+//   }
+//   50%{
+//     transform: translate(-50%,-50%) rotate(0deg);
+//   }
+//   75%{
+//     transform: translate(-50%,-50%) rotate(3deg);
+//   }
+//   100%{
+//     transform: translate(-50%,-50%) rotate(0deg);
+//   }
+// }
+
+// end of animation for submin button
+
+
+
+

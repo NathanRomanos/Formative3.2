@@ -11,6 +11,7 @@ const Item = require('./models/item.js'); //this refers to the structure for pro
 const port = 3000; //set server port
 
 //connect to db
+
 const mongodbURI = `mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASSWORD}@${config.MONGO_CLUSTER_NAME}.mongodb.net/formative3-2db?retryWrites=true&w=majority`; //set what mongoDb to look at (set which collection with word after mongodeb.net/)
 mongoose.connect(mongodbURI, {useNewUrlParser: true, useUnifiedTopology: true}) // connect to above
 .then(()=> console.log('DB connected!')) //success message
@@ -27,7 +28,7 @@ db.once('open', function() { // on open do this once
 
 //sets request format??
 app.use((req,res,next)=>{
-  console.log(`${req.method} request for ${req.url}`); //missed this bit but keep it 
+  console.log(`${req.method} request for ${req.url}`); //missed this bit but keep it
   next();//include this to go to the next middleware
 });
 
@@ -61,14 +62,33 @@ app.post('/signUp', (req,res)=>{ // this is for create
 }); //end user
 
 // log in 
+app.post('/loginUser', (req,res)=>{
+  User.findOne({username:req.body.username},(err,userResult)=>{
+    if (userResult){
+      if (bcryptjs.compareSync(req.body.password, userResult.password)){
+        res.send(userResult);
+      } else {
+        res.send('not authorized');
+      }//inner if
+    } else {
+       res.send('user not found. Please register');
+    }//outer if
+  });//findOne
+});//post
+
+// display users
+
+// delete user
 
 // log out
 
-// view all
+// view all item
 
-// edit/update
+// view items by user
 
-// delete
+// edit/update item
+
+// delete item
 
 
 //keep this always at the bottom so that you can see the errors reported

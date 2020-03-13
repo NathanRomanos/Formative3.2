@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Home gallery page for formative 3.2">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta name="author" content="Team nathpearojac">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Profile</title>
+  </head>
+  <body class="bg-dark">
+
+
+<!-- header -->
+      <div class="header px-5 py-5 bg-white">
+          <img src="" class="img-thumbnial float-left" alt="logo">
+          <button type="submit" class="btn border border-primary float-right">Logout</button>
+      </div>
+
+<!-- profile section -->
+      <div class="bg-white w-100">
+        <!-- image -->
+        <div class="d-flex justify-content-center px-5 py-5">
+          <div id="profileImg" class="profile-img-size rounded-circle bg-dark img-thumbnail text-white text-center pt-5">Profile Image</div>
+        </div>
+
+        <!-- details -->
+        <div class="profile-form d-flex justify-content-center px-5 mx-5 w-100">
+          <form class="pb-5">
+            <div class="form-group row">
+              <label for="username" class="col-sm-2 col-form-label mr-5">Username:</label>
+              <div class="col-sm-4">
+                <input type="text" class="" id="username" name="username" value="abc">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="userEmail" class="col-sm-2 col-form-label mr-5 w-100">Email:</label>
+              <div class="col-sm-4">
+                <input type="text" class="" id="userEmail" name="userEmail" value="email@example.com">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="userPassword" class="col-sm-2 col-form-label mr-5">Password:</label>
+              <div class="col-sm-4">
+                <input type="password" class="" id="userPassword" name="userPassword" value="12345">
+              </div>
+            </div>
+
+            <button id="editUserBtn" type="submit" class="btn btn-primary mb-2 w-100">Edit</button>
+          </form>
+        </div>
+      </div>
+
+
+<!-- items section -->
+      <div class="container-fluid pl-5">
+        <button id="addItemBtn" type="button" name="button" class="btn btn-lg btn-primary mt-5 mr-3 rounded-pill">Add New</button>
+        <!-- <button id="viewAll" type="button" name="button" class="btn btn-lg btn-primary mt-5 mr-3 rounded-pill">View All User</button> -->
+
+      <div id="itemsCard" class="row">
+      </div>
+
+      </div>
+
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>
