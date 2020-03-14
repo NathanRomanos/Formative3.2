@@ -6,7 +6,11 @@ const  itemSchema = new mongoose.Schema({
   imgUrl : String,
   author :String,
   description : String,
-  link : String
+  link : String,
+  user_id : {
+    type : mongoose.Schema.Types.ObjectId,
+    ref : 'User'
+  }
 });
 
 module.exports = mongoose.model('Item', itemSchema);
