@@ -205,18 +205,6 @@
   left: 30%;
 }
 
-#log-in-container {
-  display: none;
-}
-
-#sign-up-form {
-  display: none;
-}
-
-#home-container {
-  display: none;
-}
-
 .home-container {
   margin-top: 20vh;
   padding: 0 2vw;

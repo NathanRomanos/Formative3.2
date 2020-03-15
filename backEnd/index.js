@@ -8,7 +8,7 @@ const config = require('./config.json');//has credentials
 const User = require('./models/user.js'); //this refers to the structure for user ojects
 const Item = require('./models/item.js'); //this refers to the structure for product ojects
 
-const port = 3000; //set server port
+const port = 8080; //set server port
 
 //connect to db
 
@@ -76,6 +76,13 @@ app.post('/loginUser', (req,res)=>{
 });//post
 
 // display users
+app.get('/viewUser', (req, res)=> {
+  User.find().then(result => {
+    res.send(result);
+  });
+});
+
+// edit/update user
 
 // delete user
 
