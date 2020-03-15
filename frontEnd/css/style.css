@@ -22,7 +22,7 @@
 
 .background-4 {
   background-color: white;
-  color: #333;
+  color: darkgrey;
 }
 
 .text-heading {
@@ -39,7 +39,7 @@
 }
 
 .home-nav {
-  height: 10vh;
+  height: 7vh;
   width: 100%;
   position: sticky;
   top: 0;
@@ -47,18 +47,20 @@
   z-index: 100;
 }
 .home-nav .logo {
-  height: 8vh;
+  height: 6vh;
   width: 18vw;
   position: absolute;
   top: 1vh;
   left: 1vw;
-  border-radius: 20px;
+}
+.home-nav .logo img {
+  height: 5vh;
   cursor: pointer;
 }
 .home-nav .view-users-btn {
-  padding: 1vh 1vw;
+  padding: 0.8vh 0.8vw;
   position: absolute;
-  top: 2vh;
+  top: 1vh;
   right: 10vw;
   text-align: center;
   border-radius: 20px;
@@ -93,19 +95,25 @@
   display: none;
 }
 .home-nav .profile-btn {
-  height: 8vh;
-  width: 8vh;
+  height: 5vh;
+  width: 5vh;
   position: absolute;
   top: 1vh;
   right: 1vw;
   border-radius: 100%;
   cursor: pointer;
 }
+.home-nav .profile-btn img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
 
 #sign-up-form input {
   background: none;
   border: none;
   outline: none;
+  z-index: 50;
 }
 
 #log-in-form input {
@@ -238,6 +246,11 @@
   background-color: grey;
   cursor: pointer;
 }
+.home-card .home-item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+}
 .home-card .home-item p {
   position: absolute;
   bottom: 2%;
@@ -259,7 +272,7 @@
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
 }
 
-.profile-btn:hover, .view-users-btn:hover, .logo:hover {
+.profile-btn:hover, .view-users-btn:hover {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
 }
 
