@@ -1,8 +1,9 @@
 console.log('working');
- 
+
  let url;
 
  $.ajax({
+
 		url :'config.json',
 		type :'GET',
 		dataType :'json',
@@ -134,3 +135,33 @@ $('#viewUserBtn').click(function(){ // assign button
       }//error
     });//ajax
 });//viewUser button
+
+  //Home page gallery
+  $.ajax({
+     url :`${url}/viewItem`,
+     type :'GET',
+     dataType :'json',
+     success : function(viewData){
+       console.log(viewData);
+       document.getElementById('galleryResult').innerHTML = "";
+       for (var i = 0; i < viewData.length; i++) {
+         document.getElementById('galleryResult').innerHTML +=
+         `<div class="home-card">
+           <div class="home-item background-2">
+             <img src="${viewData[i].imgUrl}" alt="image should go here">
+             <p class="text-heading">${viewData[i].author}</p>
+           </div>
+           <div class="home-link background-1">
+             <a href="${viewData[i].link}" target="_blank">Link to Website</a>
+           </div>
+         </div>`;
+       }
+
+     },
+     error:function (){
+       console.log('oops');
+     }
+ }); //ajax ends
+
+});//document ready function ends
+

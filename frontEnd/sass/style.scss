@@ -1,74 +1,10 @@
 @import "reset";
 @import "variables";
 @import "styling";
+@import "home";
+@import "nav";
 
-.home-nav{
-  height: 10vh;
-  width: 100%;
-  position: relative;
 
-  .logo{
-    height: 8vh;
-    width: 18vw;
-    position: absolute;
-    top: 1vh;
-    left: 1vw;
-    border-radius: 20px;
-    cursor: pointer;
-  }
-
-  .view-users-btn{
-    padding: 1vh 1vw;
-    position: absolute;
-    top: 2vh;
-    right: 10vw;
-    text-align: center;
-    border-radius: 20px;
-    cursor: pointer;
-  }
-
-  .login-btn{
-    padding: 1vh 1vw;
-    position: absolute;
-    top: 2vh;
-    right: 20vw;
-    text-align: center;
-    border-radius: 20px;
-    cursor: pointer;
-  }
-
-  .sign-up-btn{
-    padding: 1vh 1vw;
-    position: absolute;
-    top: 2vh;
-    right: 10vw;
-    text-align: center;
-    border-radius: 20px;
-    cursor: pointer;
-  }
-
-   #log-out-btn{
-    padding: 1vh 1vw;
-    position: absolute;
-    top: 2vh;
-    right: 10vw;
-    text-align: center;
-    border-radius: 20px;
-    cursor: pointer;
-    display: none;
-  }
-
-  .profile-btn{
-    height: 8vh;
-    width: 8vh;
-    position: absolute;
-    top: 1vh;
-    right: 1vw;
-    border-radius: 100%;
-    cursor: pointer;
-  }
-
-} // home nav ends
 
 // form styling
 // make errors come up testing different styling on errors
@@ -77,6 +13,7 @@
   background: none;
   border: none;
   outline: none;
+  z-index: 50;
   }
 
   #log-in-form input{
@@ -128,7 +65,7 @@
   height: 50px;
   width: 400px;
   color: white;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 .form-sign-up-email{
@@ -139,7 +76,7 @@
   color: white;
   background: #FFF7ED;
   border-radius: 10px;
-  
+
 }
 
 .form-sign-up-password{
@@ -208,25 +145,31 @@
 
 
 .home-container{
-  margin-top: 10vh;
+  margin-top: 20vh;
   padding: 0 2vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content:  space-around;
 }
 
 .home-card{
-  width: 25vw;
-  height: 28vw;
+  width: 20vw;
+  height: 24vw;
   margin-top: 4vh;
 
   .home-item{
-    width: 25vw;
-    height: 25vw;
+    width: 20vw;
+    height: 20vw;
     position: relative;
     border-radius: 2rem;
     background-color: $color-2;
     cursor: pointer;
+
+    img{
+      width: 100%;
+      height: 100%;
+      border-radius: 2rem;
+    }
 
     p{
       position: absolute;
@@ -257,7 +200,7 @@
   box-shadow: $shadow-1;
 }
 
-.profile-btn:hover, .view-users-btn:hover, .logo:hover{
+.profile-btn:hover, .view-users-btn:hover{
   box-shadow: $shadow-2;
 }
 
@@ -294,7 +237,3 @@
 // }
 
 // end of animation for submin button
-
-
-
-
