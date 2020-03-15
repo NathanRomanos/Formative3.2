@@ -53,6 +53,30 @@ console.log('working');
 //
 // }) //document.ready
 
+//sign up 
+
+$('#signUpA').click(function(){ //assign button here and inputs below >>
+		let username = $('#nameA').val();
+		let email = $('#emailA').val();
+		let password = $('#passA').val();
+	$.ajax({
+		url :`${url}/registerUser`,
+		type :'POST',
+		data :{
+			username : username,
+			email : email,
+			password : password
+		},
+		success : function(login){
+			console.log(login);
+		},
+		error:function (){
+			console.log('oops');
+		}
+	});
+});
+
+//log in
 
 $('#logIn').click(function(){
 	event.preventDefault();
@@ -86,3 +110,27 @@ $('#logIn').click(function(){
 		}
 	});
 });
+
+
+//log out button 
+
+$('#logOutBtn').click(function(){ //needs button to assign too here
+				sessionStorage.clear();
+				console.log(sessionStorage);
+});
+
+// view users (all) 
+
+$('#viewUserBtn').click(function(){ // assign button
+    $.ajax({
+      url :`${url}/allUsers`,
+      type :'GET',
+      dataType :'json',
+      success : function(displayUsers){
+        console.log(displayUsers);
+      },//success
+      error:function(){
+        console.log('error: cannot call api');
+      }//error
+    });//ajax
+});//viewUser button
