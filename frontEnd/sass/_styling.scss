@@ -1,0 +1,39 @@
+// Background styling
+
+.background-1{
+  background-color: $color-1;
+  color: $color-3;
+}
+
+.background-2{
+  background-color: $color-2;
+  color: $color-1;
+}
+
+.background-3{
+  background-color: $color-3;
+}
+
+.background-4{
+  background-color: $color-4;
+  color: $color-3;
+}
+
+
+
+// Text styling
+
+.text-heading{
+  font-size: 2rem;
+}
+.text-medium{
+  font-size: 1.4rem;
+}
+
+
+//button styling
+
+.btn-1{
+  background-color: $color-5;
+  color: $color-4;
+}
