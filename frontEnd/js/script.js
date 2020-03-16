@@ -53,62 +53,18 @@ console.log('working');
 //
 // }) //document.ready
 
-//sign up
 
-$('#signUpA').click(function(){ //assign button here and inputs below >>
-		let username = $('#nameA').val();
-		let email = $('#emailA').val();
-		let password = $('#passA').val();
-	$.ajax({
-		url :`${url}/registerUser`,
-		type :'POST',
-		data :{
-			username : username,
-			email : email,
-			password : password
-		},
-		success : function(login){
-			console.log(login);
-		},
-		error:function (){
-			console.log('oops');
-		}
-	});
+
+$('#sign-up-btn').click(function(){
+    $('#sign-up-form').show();
+    $('#log-in-container').hide();
 });
 
-//log in
 
-$('#logIn').click(function(){
-	event.preventDefault();
-		let username = $('#username').val();
-		let password = $('#password').val();
-	$.ajax({
-		url :`${url}/loginUser`,
-		type :'POST',
-		data :{
-			username : username,
-			password : password
-		},
-		success : function(login){
-			console.log(login);
-			if (login === 'not authorized') {
-				alert('wrong password');
-			} else if (login === 'user not found. Please register'){
-				alert('wrong username');
-			} else {
-				sessionStorage.setItem('userId', login['_id']);
-				sessionStorage.setItem('username', login['username']);
-				// sessionStorage.setItem('email', login['email']);
-				console.log(sessionStorage);
-				// $('#logOut').css('display','block');
-				// $('#logSignForm').css('display','none');
-				// $('#editingForm').css('display','block');
-			}
-		},
-		error:function (){
-			console.log('oops');
-		}
-	});
+$('#login-btn').click(function(){
+    $('#log-in-container').show();
+    $('#sign-up-form').hide();
+
 });
 
 //display user based on userID (sessionStorage) - profile page
@@ -183,9 +139,11 @@ $('#viewItemProfile').click(function(){
   }//error
   }); //ajax
 }); //viewProduct button
-
-
-// retrieve user_id from sessionStorage and display on add new item form
+   
+//Pearly's code
+   
+   
+   // retrieve user_id from sessionStorage and display on add new item form
 $('#addItemBtn').click(function(){
   document.getElementById('addUserId').value =  sessionStorage['userId'];
 });
@@ -292,10 +250,144 @@ $('#submitAddItemBtn').click(function(){
    
 //log out button
 
-$('#logOutBtn').click(function(){ //needs button to assign too here
-				sessionStorage.clear();
-				console.log(sessionStorage);
+
+
+// sign up form front end
+
+$('#sign-up-form').submit(function(){
+
+    event.preventDefault();
+    let username = $('#r-username').val();
+    let email = $('#r-email').val();
+    let password = $('#r-password').val();
+
+    console.log(username,email, password);
+
+    if (username == ''){
+      alert('please enter a user name');
+
+      $('#r-username').attr('placeholder', 'Please enter a user name');
+      $('#r-email').attr('placeholder', 'Please enter an email');
+      $('#r-password').attr('placeholder', 'Please enter a password');
+
+
+    }  else if (email == '') {
+      alert('please enter an email');
+      //not sure why email background box is poping up on this alert will I need to fix this
+      //with background colour but when you enter password first it doesnt happen
+      $('#r-username').attr('placeholder', 'Please enter a user name');
+      $('#r-email').attr('placeholder', 'Please enter an email');
+      $('#r-password').attr('placeholder', 'Please enter a password');
+      $('.email-container').css('border', '2px solid red');
+
+
+    }else if (password == '') {
+      alert('enter a password');
+      $('#r-username').attr('placeholder', 'Please enter a user name');
+      $('#r-email').attr('placeholder', 'Please enter an email');
+      $('#r-password').attr('placeholder', 'Please enter an email');
+
+      // $('.password-container').css("box-shadow",'none');
+      // $('.password-container').css('background','#FFA286');
+      $('.email-container').css('border', '2px solid white');
+      $('.password-container').css('border', '2px solid red');
+      $('.password-container').css('color','white');
+
+    }else {
+    // activates the server side of things
+    // showing error on line two of config.json file
+    $.ajax({
+      url :`${url}/signUp`,
+      type :'POST',
+      data:{
+        username : username,
+        email : email,
+        password : password
+        },
+      success : function(user){
+        console.log(user);
+        if ((user == 'username taken already. Please try another one')) {
+          // alert('please log in');
+          $('#log-in-container').show();
+          $('#sign-up-container').hide();
+        } else {
+          alert('username taken already. Please try another one');
+          $('#r-username').val('');
+          $('#r-email').val('');
+          $('#r-password').val('');
+        }
+      },//success
+      error:function(){
+        console.log('error: cannot call api');
+      }//error
+    });//ajax
+
+  }//else
+});//submit function for registerForm
+
+  // end of sign up form
+
+//log in
+
+$('#log-in-form').submit(function(){
+  event.preventDefault();
+
+  let username = $('#username').val();
+  let password = $('#password').val();
+
+  console.log(username, password);
+
+  if (username == '' || password == ''){
+    alert('Please enter all details');
+  } else {
+
+  $.ajax({
+    url :`${url}/loginUser`,
+    type :'POST',
+    data:{
+      username : username,
+      password : password
+      },
+
+    success : function(user){
+      console.log(user);
+      if (user == 'user not found. Please register'){
+      alert('user not found. Please enter correct data or register a new user');
+
+      } else if (user == 'not authorized'){
+        alert('Please try with correct details');
+        $('#username').val('');
+        $('#password').val('');
+      } else{
+
+         $('#log-in-container').hide();
+         $('#log-out-btn').show();
+         // when shown after login/sign up forms colums of home-container display in one col
+         $('#home-container').show();
+        sessionStorage.setItem('userID', user['_id']);
+        sessionStorage.setItem('userName',user['username']);
+        sessionStorage.setItem('userEmail',user['email']);
+        console.log(sessionStorage);
+      }
+    },//success
+    error:function(){
+      console.log('error: cannot call api');
+    }//error
+  });//ajax
+
+}//else
+});//submit function for login loginForm
+
+
+// logout Btn
+$('#log-out-btn').click(function(){
+  console.log('You are logged out');
+  sessionStorage.clear();
+  $('#log-out-btn').hide();
+  $('#sign-up-btn').show();
+  console.log(sessionStorage);
 });
+
 
 // view users (all)
 
@@ -313,6 +405,10 @@ $('#viewUserBtn').click(function(){ // assign button
     });//ajax
 });//viewUser button
 
+
+
+$('.item-card-menu, .menu-close').hide();
+// $('')
 //Home page gallery
   $.ajax({
      url :`${url}/viewItem`,
@@ -323,16 +419,16 @@ $('#viewUserBtn').click(function(){ // assign button
        document.getElementById('galleryResult').innerHTML = "";
        for (var i = 0; i < viewData.length; i++) {
          document.getElementById('galleryResult').innerHTML +=
-        `<div class="home-card background-3">
+        `<div class="item-card background-3">
           <div class="col">
             <img class="card-img-top" alt="item image should go here" src="${viewData[i].imgUrl}">
-            <h2 class="home-item-title text-item">${viewData[i].name}</h2>
+            <h2 class="item-card-title text-item">${viewData[i].name}</h2>
             <div class="photoShadow"></div>
           </div>
-          <div class="home-item-text">
+          <div class="item-card-text">
             <p>${viewData[i].description}</p>
             <p class="text-medium">By ${viewData[i].author}</p>
-            <a class="home-item-link" href="${viewData[i].link}" target="_blank"><button class="btn-1" type="button" name="button">View website link</button></a>
+            <a class="item-card-link" href="${viewData[i].link}" target="_blank"><button class="btn-1" type="button" name="button">View website link</button></a>
           </div>
         </div> `;
        }
