@@ -16,8 +16,7 @@ console.log('working');
 		}
 });
 
-//
-// $(document).ready(function(){
+ $(document).ready(function(){
 //
 // //get url and port from config.json
 //   $.ajax({
@@ -54,7 +53,7 @@ console.log('working');
 //
 // }) //document.ready
 
-//sign up 
+//sign up
 
 $('#signUpA').click(function(){ //assign button here and inputs below >>
 		let username = $('#nameA').val();
@@ -113,14 +112,14 @@ $('#logIn').click(function(){
 });
 
 
-//log out button 
+//log out button
 
 $('#logOutBtn').click(function(){ //needs button to assign too here
 				sessionStorage.clear();
 				console.log(sessionStorage);
 });
 
-// view users (all) 
+// view users (all)
 
 $('#viewUserBtn').click(function(){ // assign button
     $.ajax({
@@ -136,7 +135,7 @@ $('#viewUserBtn').click(function(){ // assign button
     });//ajax
 });//viewUser button
 
-  //Home page gallery
+//Home page gallery
   $.ajax({
      url :`${url}/viewItem`,
      type :'GET',
@@ -146,15 +145,18 @@ $('#viewUserBtn').click(function(){ // assign button
        document.getElementById('galleryResult').innerHTML = "";
        for (var i = 0; i < viewData.length; i++) {
          document.getElementById('galleryResult').innerHTML +=
-         `<div class="home-card">
-           <div class="home-item background-2">
-             <img src="${viewData[i].imgUrl}" alt="image should go here">
-             <p class="text-heading">${viewData[i].author}</p>
-           </div>
-           <div class="home-link background-1">
-             <a href="${viewData[i].link}" target="_blank">Link to Website</a>
-           </div>
-         </div>`;
+        `<div class="home-card background-3">
+          <div class="col">
+            <img class="card-img-top" alt="item image should go here" src="${viewData[i].imgUrl}">
+            <h2 class="home-item-title text-item">${viewData[i].name}</h2>
+            <div class="photoShadow"></div>
+          </div>
+          <div class="home-item-text">
+            <p>${viewData[i].description}</p>
+            <p class="text-medium">By ${viewData[i].author}</p>
+            <a class="home-item-link" href="${viewData[i].link}" target="_blank"><button class="btn-1" type="button" name="button">View website link</button></a>
+          </div>
+        </div> `;
        }
 
      },
@@ -164,4 +166,3 @@ $('#viewUserBtn').click(function(){ // assign button
  }); //ajax ends
 
 });//document ready function ends
-

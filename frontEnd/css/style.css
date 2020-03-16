@@ -6,36 +6,55 @@
   scroll-behavior: smooth;
 }
 
+p {
+  margin: 0;
+}
+
 .background-1 {
   background-color: #333;
-  color: darkgrey;
+  color: white;
 }
 
 .background-2 {
-  background-color: grey;
+  background-color: white;
   color: #333;
 }
 
 .background-3 {
-  background-color: darkgrey;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
 }
 
 .background-4 {
-  background-color: white;
-  color: darkgrey;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #007bff;
+}
+
+.text-item {
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
+  line-height: 2rem;
 }
 
 .text-heading {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .text-medium {
   font-size: 1.4rem;
 }
 
+.text-small {
+  font-size: 1rem;
+}
+
 .btn-1 {
   background-color: #007bff;
   color: white;
+  border-color: #007bff;
+  border-radius: 2rem;
+  padding: 5px;
 }
 
 .home-nav {
@@ -51,7 +70,7 @@
   width: 18vw;
   position: absolute;
   top: 1vh;
-  left: 1vw;
+  left: 2vw;
 }
 .home-nav .logo img {
   height: 5vh;
@@ -61,7 +80,7 @@
   padding: 0.8vh 0.8vw;
   position: absolute;
   top: 1vh;
-  right: 10vw;
+  right: 7vw;
   text-align: center;
   border-radius: 20px;
   cursor: pointer;
@@ -84,22 +103,12 @@
   border-radius: 20px;
   cursor: pointer;
 }
-.home-nav #log-out-btn {
-  padding: 1vh 1vw;
-  position: absolute;
-  top: 2vh;
-  right: 10vw;
-  text-align: center;
-  border-radius: 20px;
-  cursor: pointer;
-  display: none;
-}
 .home-nav .profile-btn {
   height: 5vh;
   width: 5vh;
   position: absolute;
   top: 1vh;
-  right: 1vw;
+  right: 2vw;
   border-radius: 100%;
   cursor: pointer;
 }
@@ -227,40 +236,51 @@
 
 .home-container {
   margin-top: 20vh;
-  padding: 0 2vw;
+  padding: 2vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
 .home-card {
-  width: 20vw;
-  height: 24vw;
-  margin-top: 4vh;
-}
-.home-card .home-item {
-  width: 20vw;
-  height: 20vw;
+  width: 25vw;
+  margin: 2%;
   position: relative;
-  border-radius: 2rem;
-  background-color: grey;
-  cursor: pointer;
 }
-.home-card .home-item img {
+.home-card .col {
+  background-color: white;
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+}
+.home-card .col .home-item-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
   width: 100%;
-  height: 100%;
-  border-radius: 2rem;
+  padding: 2%;
 }
-.home-card .home-item p {
+.home-card .col .photoShadow {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background: linear-gradient(to bottom, rgba(76, 76, 76, 0) 0, rgba(19, 19, 19, 0.5) 100%);
+}
+.home-card .home-item-text {
+  width: 100%;
+  padding: 2%;
+}
+.home-card .home-item-text h4 {
+  margin-bottom: 30px;
+}
+.home-card .home-item-text .home-item-link {
   position: absolute;
   bottom: 2%;
-  left: 2%;
-  margin: 0;
-}
-.home-card .home-link {
-  width: 40%;
-  height: 2vw;
-  margin: 0.5vw 0;
+  right: 2%;
 }
 
 .profile-img-size {
@@ -268,8 +288,10 @@
   height: 150px;
 }
 
-.home-item:hover {
+.home-card:hover {
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
 }
 
 .profile-btn:hover, .view-users-btn:hover {
