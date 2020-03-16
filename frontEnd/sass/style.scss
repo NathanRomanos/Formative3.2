@@ -4,8 +4,6 @@
 @import "home";
 @import "nav";
 
-
-
 // form styling
 // make errors come up testing different styling on errors
 
@@ -14,12 +12,14 @@
   border: none;
   outline: none;
   z-index: 50;
+  display: none;
   }
 
   #log-in-form input{
   background: none;
   border: none;
   outline: none;
+  display: none;
   }
 
 .user-name-container{
@@ -210,6 +210,8 @@
   width : 150px;
   height : 150px;
 }
+
+
 
 //hovers
 .home-card:hover{

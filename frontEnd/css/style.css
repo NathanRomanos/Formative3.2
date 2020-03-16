@@ -123,12 +123,14 @@ p {
   border: none;
   outline: none;
   z-index: 50;
+  display: none;
 }
 
 #log-in-form input {
   background: none;
   border: none;
   outline: none;
+  display: none;
 }
 
 .user-name-container {
