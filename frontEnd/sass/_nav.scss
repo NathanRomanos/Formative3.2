@@ -19,9 +19,8 @@
   }
 
   .nav-right{
-    width: 40%;
     display: flex;
-    justify-content: space-around;
+    justify-content:  flex-end;
     margin: 0.8vh 0.8vw;
   }
 
@@ -34,6 +33,7 @@
 
   .login-btn{
     padding: 0.8vh 0.8vw;
+    margin: 0 0.8vw;
     text-align: center;
     border-radius: 20px;
     cursor: pointer;
@@ -41,6 +41,7 @@
 
   .sign-up-btn{
     padding: 0.8vh 0.8vw;
+    margin: 0 0.8vw;
     text-align: center;
     border-radius: 20px;
     cursor: pointer;
@@ -48,6 +49,7 @@
 
   #log-out-btn{
    padding: 0.8vh 0.8vw;
+   margin: 0 0.8vw;
    text-align: center;
    border-radius: 20px;
    cursor: pointer;
@@ -57,9 +59,10 @@
   .profile-btn{
     height: 5vh;
     width: 5vh;
+    margin: 0 0.8vw;
     border-radius: 100%;
     cursor: pointer;
-    display: none;
+    // display: none;
 
     img{
       width: 100%;

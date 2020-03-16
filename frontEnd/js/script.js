@@ -54,6 +54,26 @@ console.log('working');
 // }) //document.ready
 
 
+$('#profileBtn').hide();
+$('.profile-master-container').hide();
+$('#view-users-btn').hide();
+
+$('#profileBtn').click(function(){
+  $('#galleryResult').hide();
+  $('.profile-master-container').show();
+});
+
+$('#logo').click(function(){
+  $('#galleryResult').show();
+  $('.profile-master-container').hide();
+});
+
+$('#log-out-btn').click(function(){
+  $('#galleryResult').show();
+  $('.profile-master-container').hide();
+  $('#login-btn').show();
+  $('#profileBtn').hide();
+})
 
 $('#sign-up-btn').click(function(){
     $('#sign-up-form').show();
@@ -68,28 +88,30 @@ $('#login-btn').click(function(){
 });
 
 //display user based on userID (sessionStorage) - profile page
-$('#viewUserDetailsBtn').click(function(){
+$('#profileBtn').click(function(){
   //viewUserBtn changed to viewUserDetailsBtn
   $.ajax({
-  url :`${url}/viewUser`,
+  url :`${url}/displayUsers`,
   type :'GET',
   dataType :'json',
   success : function(viewUser){
     console.log(viewUser);
-    document.getElementById('itemsCard').innerHTML = "";
+    // document.getElementById('itemsCard').innerHTML = "";
 
     for(let i=0; i<viewUser.length; i++){
 
-      if (sessionStorage['userId'] == viewUser[i]._id){
+      if (sessionStorage['userID'] == viewUser[i]._id){
       console.log(viewUser[i]._id);
-      document.getElementById('usernameProfile').value = `${viewUser[i].username}`
-      document.getElementById('userEmailProfile').value = `${viewUser[i].email}`
-      document.getElementById('userPasswordProfile').value = `${viewUser[i].password}`
+      document.getElementById('usernameProfile').value = `${viewUser[i].username}`;
+      document.getElementById('userEmailProfile').value = `${viewUser[i].email}`;
+      document.getElementById('userPasswordProfile').value = `${viewUser[i].password}`;
       console.log(viewUser[i].username);
       console.log(viewUser[i].email);
       console.log(viewUser[i].password);
-     } // for loop
-   }
+    } else {
+      console.log('whoops');
+    }
+   }// for loop
   },//success
   error:function(){
     console.log('error: cannot call api');
@@ -101,7 +123,7 @@ $('#viewUserDetailsBtn').click(function(){
 
 
 // view item based on user ID(sessionStorage) - profile page
-$('#viewItemProfile').click(function(){
+$('#profileBtn').click(function(){
   $.ajax({
   url :`${url}/viewItem`,
   type :'GET',
@@ -112,7 +134,7 @@ $('#viewItemProfile').click(function(){
 
     for(let i=0; i<viewData.length; i++){
 
-      if (sessionStorage['userId'] == viewData[i].user_id){
+      if (sessionStorage['userID'] == viewData[i].user_id){
       console.log(viewData[i].user_id);
       document.getElementById('itemsCard').innerHTML +=
       `<div class="item-card background-3">
@@ -139,40 +161,41 @@ $('#viewItemProfile').click(function(){
   }//error
   }); //ajax
 }); //viewProduct button
-   
+
 //Pearly's code
-   
-   
+
+
    // retrieve user_id from sessionStorage and display on add new item form
 $('#addItemBtn').click(function(){
-  document.getElementById('addUserId').value =  sessionStorage['userId'];
+  document.getElementById('addUserId').value =  sessionStorage['userID'];
 });
 
 // retrieve user_id from sessionStorage and display on edit user form
 $('#editUserBtn').click(function(){
-  document.getElementById('userIdEdit').value =  sessionStorage['userId'];
+  document.getElementById('userIdEdit').value =  sessionStorage['userID'];
+  console.log(sessionStorage['userID']);
 });
 
 
 //update user (Edit User Form) - profile page
-$('#updateUserBtn').click(function(){
+$('#updateUserDetailsBtn').click(function(){
   event.preventDefault();
-  let  userId = $('#userIdEdit').val();
+  let  userID = $('#userIdEdit').val();
   let  username = $('#usernameEdit').val();
   let  email = $('#userEmailEdit').val();
   let  password = $('#userPasswordEdit').val();
 
-  console.log(userId, username, email, password);
+  console.log(userID, username, email, password);
 
   if (username == '' || email == '' || password == ''){
     alert('Please enter all details');
   } else {
 
   $.ajax({
-    url :`${url}/updateUser/${userId}`,
+    url :`${url}/updateUser/${userID}`,
     type :'PATCH',
     data:{
-      _id : userId,
+      _id : userID,
       username : username,
       email : email,
       password : password
@@ -217,7 +240,7 @@ $('#submitAddItemBtn').click(function(){
       author : author,
       description : description,
       link : link,
-      user_id : sessionStorage['userId']
+      user_id : sessionStorage['userID']
       },
 
     success : function(item){
@@ -246,8 +269,8 @@ $('#submitAddItemBtn').click(function(){
 
 }//else
 });//add new item function
-   
-   
+
+
 //log out button
 
 
@@ -285,7 +308,7 @@ $('#sign-up-form').submit(function(){
       alert('enter a password');
       $('#r-username').attr('placeholder', 'Please enter a user name');
       $('#r-email').attr('placeholder', 'Please enter an email');
-      $('#r-password').attr('placeholder', 'Please enter an email');
+      $('#r-password').attr('placeholder', 'Please enter a password');
 
       // $('.password-container').css("box-shadow",'none');
       // $('.password-container').css('background','#FFA286');
@@ -306,7 +329,7 @@ $('#sign-up-form').submit(function(){
         },
       success : function(user){
         console.log(user);
-        if ((user == 'username taken already. Please try another one')) {
+        if (!(user == 'username taken already. Please try another one')) {
           // alert('please log in');
           $('#log-in-container').show();
           $('#sign-up-container').hide();
@@ -368,6 +391,9 @@ $('#log-in-form').submit(function(){
         sessionStorage.setItem('userName',user['username']);
         sessionStorage.setItem('userEmail',user['email']);
         console.log(sessionStorage);
+        $('#profileBtn').show();
+        $('#sign-up-btn').hide();
+        $('#login-btn').hide();
       }
     },//success
     error:function(){
@@ -391,19 +417,19 @@ $('#log-out-btn').click(function(){
 
 // view users (all)
 
-$('#viewUserBtn').click(function(){ // assign button
-    $.ajax({
-      url :`${url}/allUsers`,
-      type :'GET',
-      dataType :'json',
-      success : function(displayUsers){
-        console.log(displayUsers);
-      },//success
-      error:function(){
-        console.log('error: cannot call api');
-      }//error
-    });//ajax
-});//viewUser button
+// $('#viewUserBtn').click(function(){ // assign button
+//     $.ajax({
+//       url :`${url}/allUsers`,
+//       type :'GET',
+//       dataType :'json',
+//       success : function(displayUsers){
+//         console.log(displayUsers);
+//       },//success
+//       error:function(){
+//         console.log('error: cannot call api');
+//       }//error
+//     });//ajax
+// });//viewUser button
 
 
 

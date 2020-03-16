@@ -145,6 +145,9 @@ p {
 .item-card .item-card-text h4 {
   margin-bottom: 30px;
 }
+.item-card .item-card-text p {
+  width: 60%;
+}
 .item-card .item-card-text .item-card-link {
   position: absolute;
   bottom: 2%;
@@ -180,9 +183,8 @@ p {
   cursor: pointer;
 }
 .home-nav .nav-right {
-  width: 40%;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   margin: 0.8vh 0.8vw;
 }
 .home-nav .view-users-btn {
@@ -193,18 +195,21 @@ p {
 }
 .home-nav .login-btn {
   padding: 0.8vh 0.8vw;
+  margin: 0 0.8vw;
   text-align: center;
   border-radius: 20px;
   cursor: pointer;
 }
 .home-nav .sign-up-btn {
   padding: 0.8vh 0.8vw;
+  margin: 0 0.8vw;
   text-align: center;
   border-radius: 20px;
   cursor: pointer;
 }
 .home-nav #log-out-btn {
   padding: 0.8vh 0.8vw;
+  margin: 0 0.8vw;
   text-align: center;
   border-radius: 20px;
   cursor: pointer;
@@ -214,9 +219,9 @@ p {
 .home-nav .profile-btn {
   height: 5vh;
   width: 5vh;
+  margin: 0 0.8vw;
   border-radius: 100%;
   cursor: pointer;
-  display: none;
 }
 .home-nav .profile-btn img {
   width: 100%;
