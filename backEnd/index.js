@@ -8,7 +8,7 @@ const config = require('./config.json');//has credentials
 const User = require('./models/user.js'); //this refers to the structure for user ojects
 const Item = require('./models/item.js'); //this refers to the structure for product ojects
 
-const port = 8080; //set server port
+const port = 3000; //set server port
 
 //connect to db
 

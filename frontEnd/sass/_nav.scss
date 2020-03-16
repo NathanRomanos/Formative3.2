@@ -5,6 +5,8 @@
   top: 0;
   left: 0;
   z-index: 100;
+  background-color: #333;
+
 
   .logo{
     height: 6vh;
@@ -32,11 +34,12 @@
   .login-btn{
     padding: 1vh 1vw;
     position: absolute;
-    top: 2vh;
+    top: 1vh;
     right: 20vw;
     text-align: center;
     border-radius: 20px;
     cursor: pointer;
+    color: white;
   }
 
   .sign-up-btn{
@@ -47,6 +50,7 @@
     text-align: center;
     border-radius: 20px;
     cursor: pointer;
+    color: white;
   }
 
    #log-out-btn{
@@ -58,6 +62,7 @@
     border-radius: 20px;
     cursor: pointer;
     display: none;
+    color: white;
   }
 
   .profile-btn{
