@@ -4,6 +4,7 @@ console.log('working');
 
 
  $.ajax({
+
 		url :'config.json',
 		type :'GET',
 		dataType :'json',
@@ -16,7 +17,68 @@ console.log('working');
 		}
 });
 
+//
+// $(document).ready(function(){
+//
+// //get url and port from config.json
+//   $.ajax({
+//     url :'config.json',
+//     type :'GET',
+//     dataType :'json',
+//     success : function(configData){
+//       console.log(configData);
+//       url = `${configData.SERVER_URL}:${configData.SERVER_PORT}`;
+//       console.log(url);
+//     },//success
+//     error:function(){
+//       console.log('error: cannot call api');
+//     }//error
+//   }); //ajax
+//
+//
+//
+// //get allItem from products
+//   $.ajax({
+//     url : `${url}/allItems`,
+//     type : 'GET',
+//     dataType : 'json',
+//     success : function(itemsFromMongo){
+//       console.log(itemsFromMongo);
+//     }, //success
+//     error : function(){
+//       console.log('error : cannot call api');
+//     } //error
+//   }); //ajax
+//
+//
+//
+//
+// }) //document.ready
 
+//sign up 
+
+$('#signUpA').click(function(){ //assign button here and inputs below >>
+		let username = $('#nameA').val();
+		let email = $('#emailA').val();
+		let password = $('#passA').val();
+	$.ajax({
+		url :`${url}/registerUser`,
+		type :'POST',
+		data :{
+			username : username,
+			email : email,
+			password : password
+		},
+		success : function(login){
+			console.log(login);
+		},
+		error:function (){
+			console.log('oops');
+		}
+	});
+});
+
+//log in
 
 
 
@@ -55,9 +117,9 @@ $('#logIn').click(function(){
 
 
 
-
 //display user based on userID (sessionStorage) - profile page
-$('#viewUserBtn').click(function(){
+$('#viewUserDetailsBtn').click(function(){
+  //viewUserBtn changed to viewUserDetailsBtn
   $.ajax({
   url :`${url}/viewUser`,
   type :'GET',
@@ -224,3 +286,54 @@ $('#submitAddItemBtn').click(function(){
 
 }//else
 });//add new item function
+//log out button 
+
+$('#logOutBtn').click(function(){ //needs button to assign too here
+				sessionStorage.clear();
+				console.log(sessionStorage);
+});
+
+// view users (all) 
+
+$('#viewUserBtn').click(function(){ // assign button
+    $.ajax({
+      url :`${url}/allUsers`,
+      type :'GET',
+      dataType :'json',
+      success : function(displayUsers){
+        console.log(displayUsers);
+      },//success
+      error:function(){
+        console.log('error: cannot call api');
+      }//error
+    });//ajax
+});//viewUser button
+
+  //Home page gallery
+  $.ajax({
+     url :`${url}/viewItem`,
+     type :'GET',
+     dataType :'json',
+     success : function(viewData){
+       console.log(viewData);
+       document.getElementById('galleryResult').innerHTML = "";
+       for (var i = 0; i < viewData.length; i++) {
+         document.getElementById('galleryResult').innerHTML +=
+         `<div class="home-card">
+           <div class="home-item background-2">
+             <img src="${viewData[i].imgUrl}" alt="image should go here">
+             <p class="text-heading">${viewData[i].author}</p>
+           </div>
+           <div class="home-link background-1">
+             <a href="${viewData[i].link}" target="_blank">Link to Website</a>
+           </div>
+         </div>`;
+       }
+
+     },
+     error:function (){
+       console.log('oops');
+     }
+ }); //ajax ends
+
+});//document ready function ends
