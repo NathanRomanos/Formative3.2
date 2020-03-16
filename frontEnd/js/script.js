@@ -2,7 +2,6 @@ console.log('working');
 
  let url;
 
-
  $.ajax({
 
 		url :'config.json',
@@ -17,8 +16,7 @@ console.log('working');
 		}
 });
 
-//
-$(document).ready(function(){
+ $(document).ready(function(){
 //
 // //get url and port from config.json
 //   $.ajax({
@@ -80,8 +78,6 @@ $('#signUpA').click(function(){ //assign button here and inputs below >>
 
 //log in
 
-
-
 $('#logIn').click(function(){
 	event.preventDefault();
 		let username = $('#username').val();
@@ -114,8 +110,6 @@ $('#logIn').click(function(){
 		}
 	});
 });
-
-
 
 //display user based on userID (sessionStorage) - profile page
 $('#viewUserDetailsBtn').click(function(){
@@ -294,6 +288,8 @@ $('#submitAddItemBtn').click(function(){
 
 }//else
 });//add new item function
+   
+   
 //log out button
 
 $('#logOutBtn').click(function(){ //needs button to assign too here
@@ -317,7 +313,7 @@ $('#viewUserBtn').click(function(){ // assign button
     });//ajax
 });//viewUser button
 
-  //Home page gallery
+//Home page gallery
   $.ajax({
      url :`${url}/viewItem`,
      type :'GET',
@@ -327,15 +323,18 @@ $('#viewUserBtn').click(function(){ // assign button
        document.getElementById('galleryResult').innerHTML = "";
        for (var i = 0; i < viewData.length; i++) {
          document.getElementById('galleryResult').innerHTML +=
-         `<div class="home-card">
-           <div class="home-item background-2">
-             <img src="${viewData[i].imgUrl}" alt="image should go here">
-             <p class="text-heading">${viewData[i].author}</p>
-           </div>
-           <div class="home-link background-1">
-             <a href="${viewData[i].link}" target="_blank">Link to Website</a>
-           </div>
-         </div>`;
+        `<div class="home-card background-3">
+          <div class="col">
+            <img class="card-img-top" alt="item image should go here" src="${viewData[i].imgUrl}">
+            <h2 class="home-item-title text-item">${viewData[i].name}</h2>
+            <div class="photoShadow"></div>
+          </div>
+          <div class="home-item-text">
+            <p>${viewData[i].description}</p>
+            <p class="text-medium">By ${viewData[i].author}</p>
+            <a class="home-item-link" href="${viewData[i].link}" target="_blank"><button class="btn-1" type="button" name="button">View website link</button></a>
+          </div>
+        </div> `;
        }
 
      },

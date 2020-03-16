@@ -12,12 +12,14 @@
   border: none;
   outline: none;
   z-index: 50;
+  display: none;
   }
 
   #log-in-form input{
   background: none;
   border: none;
   outline: none;
+  display: none;
   }
 
 .user-name-container{
@@ -144,47 +146,64 @@
 
 .home-container{
   margin-top: 20vh;
-  padding: 0 2vw;
+  padding: 2vw;
   display: flex;
   flex-wrap: wrap;
   justify-content:  space-around;
 }
 
 .home-card{
-  width: 20vw;
-  height: 24vw;
-  margin-top: 4vh;
+  width: 25vw;
+  margin: 2%;
+  position: relative;
 
-  .home-item{
-    width: 20vw;
-    height: 20vw;
+
+  .col{
+    background-color: white;
     position: relative;
-    border-radius: 2rem;
-    background-color: $color-2;
-    cursor: pointer;
+    padding-left: 0;
+    padding-right: 0;
 
-    img{
+    .home-item-title{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 15;
       width: 100%;
-      height: 100%;
-      border-radius: 2rem;
+      padding: 2%;
+
     }
 
-    p{
+    .photoShadow {
+      width: 100%;
+      height: 40px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      background: linear-gradient(to bottom, rgba(76,76,76,0) 0, rgba(19,19,19,0.5) 100%);
+    }
+
+  } //col ends here
+
+  .home-item-text{
+    width: 100%;
+    padding: 2%;
+
+    h4{
+      margin-bottom: 30px;
+    }
+
+    .home-item-link{
       position: absolute;
       bottom: 2%;
-      left: 2%;
-      margin: 0;
-    } // p ends
+      right: 2%;
+    }
 
-  } //home item ends
+  }
 
-  .home-link{
-    width: 40%;
-    height: 2vw;
-    margin: 0.5vw 0;
-  } // home link ends
+} //home card ends
 
-} // home card ends
 
 //profile page
 .profile-img-size {
@@ -195,9 +214,11 @@
 
 
 //hovers
-.home-item:hover{
+.home-card:hover{
   // opacity: 0.8;
   box-shadow: $shadow-1;
+  background-color: rgba(0,0,0,0.4);
+  color: white;
 }
 
 .profile-btn:hover, .view-users-btn:hover{
