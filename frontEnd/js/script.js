@@ -18,7 +18,7 @@ console.log('working');
 });
 
 //
-// $(document).ready(function(){
+$(document).ready(function(){
 //
 // //get url and port from config.json
 //   $.ajax({
@@ -55,7 +55,7 @@ console.log('working');
 //
 // }) //document.ready
 
-//sign up 
+//sign up
 
 $('#signUpA').click(function(){ //assign button here and inputs below >>
 		let username = $('#nameA').val();
@@ -129,7 +129,7 @@ $('#viewUserDetailsBtn').click(function(){
     document.getElementById('itemsCard').innerHTML = "";
 
     for(let i=0; i<viewUser.length; i++){
-      // if (viewUser[i]._id == '5e6c4d271bfa913e625cd5a0'){ //for testing
+
       if (sessionStorage['userId'] == viewUser[i]._id){
       console.log(viewUser[i]._id);
       document.getElementById('usernameProfile').value = `${viewUser[i].username}`
@@ -161,23 +161,26 @@ $('#viewItemProfile').click(function(){
     document.getElementById('itemsCard').innerHTML = "";
 
     for(let i=0; i<viewData.length; i++){
-      // if (viewData[i].user_id == "5e6c4d271bfa913e625cd5a0"){  //for testing
+
       if (sessionStorage['userId'] == viewData[i].user_id){
       console.log(viewData[i].user_id);
       document.getElementById('itemsCard').innerHTML +=
-      `<div class="col-sm-6 col-md-4 col-lg-3 pt-5">
-        <div class="card" style="width: 18rem;">
-          <img src="${viewData[i].imgUrl}" class="card-img-top" alt="image">
-          <div class="card-body">
-           <h3 class="card-title">${viewData[i].name}</h3>
-            <h5 class="card-text">${viewData[i].author}</h5>
+      `<div class="item-card background-3">
+          <div class="col">
+            <img class="card-img-top" alt="item image should go here" src="${viewData[i].imgUrl}">
+            <h2 class="item-card-title text-item">${viewData[i].name}</h2>
+            <div class="item-card-options">
+              <button id="" class="btn-1" type="button" name="button">Edit</button>
+              <button id="" class="btn-1" type="button" name="button">Delete</button>
+            </div>
+            <div class="photoShadow"></div>
           </div>
-          <div class="card-body">
-            <p class="card-text">${viewData[i].description}</p>
-            <a href="${viewData[i].link}" class="card-link target_blank">Link to Website</a>
+          <div class="item-card-text">
+            <p>${viewData[i].description}</p>
+            <p class="text-medium">By ${viewData[i].author}</p>
+            <a class="item-card-link" href="${viewData[i].link}" target="_blank"><button class="btn-1" type="button" name="button">View website link</button></a>
           </div>
-        </div>
-      </div>`;
+        </div> `;
       }
     }
   },//success
@@ -199,7 +202,7 @@ $('#editUserBtn').click(function(){
 });
 
 
-//update user (Edit User Form) - profile page (WAIT FOR ROY TO SETUP BACKEND)
+//update user (Edit User Form) - profile page
 $('#updateUserBtn').click(function(){
   event.preventDefault();
   let  userId = $('#userIdEdit').val();
@@ -217,13 +220,16 @@ $('#updateUserBtn').click(function(){
     url :`${url}/updateUser/${userId}`,
     type :'PATCH',
     data:{
-      _id : userIdEdit,
-      username : usernameEdit,
-      email : userEmailEdit,
-      password : userPasswordEdit
+      _id : userId,
+      username : username,
+      email : email,
+      password : password
       },
     success : function(data){
       console.log(data);
+      alert('your profile has been updated!');
+      $('#profileModal').hide();
+      $('.modal-backdrop').hide();
     },//success
     error:function(){
       console.log('error: cannot call api');
@@ -254,18 +260,20 @@ $('#submitAddItemBtn').click(function(){
     url :`${url}/addItem`,
     type :'POST',
     data:{
-      name : addItemName,
-      imgUrl : addItemImgUrl,
-      author : addItemAuthor,
-      description : addItemDesc,
-      link : addItemLink,
-      user_id : sessionStorage['userId'],
+      name : name,
+      imgUrl : imageUrl,
+      author : author,
+      description : description,
+      link : link,
+      user_id : sessionStorage['userId']
       },
 
     success : function(item){
       console.log(item);
       if (!(item == 'Item is already in database. Please try again!')) {
       alert('added the project');
+      $('#itemModal').hide();
+      $('.modal-backdrop').hide();
       } else {
         alert('Item is already in database. Please try again!');
 
@@ -275,7 +283,7 @@ $('#submitAddItemBtn').click(function(){
       $('#addItemAuthor').val('');
       $('#addItemDesc').val('');
       $('#addItemLink').val('');
-      $('#addUserId').val('');
+
 
     },//success
     error:function(){
@@ -286,14 +294,14 @@ $('#submitAddItemBtn').click(function(){
 
 }//else
 });//add new item function
-//log out button 
+//log out button
 
 $('#logOutBtn').click(function(){ //needs button to assign too here
 				sessionStorage.clear();
 				console.log(sessionStorage);
 });
 
-// view users (all) 
+// view users (all)
 
 $('#viewUserBtn').click(function(){ // assign button
     $.ajax({
@@ -335,5 +343,7 @@ $('#viewUserBtn').click(function(){ // assign button
        console.log('oops');
      }
  }); //ajax ends
+
+
 
 });//document ready function ends

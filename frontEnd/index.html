@@ -56,11 +56,11 @@
 
 
 
-      <div id="log-in-container" class="">
+      <!-- <div id="log-in-container" class="">
 
-          <form id="log-in-form" class="my-5 rounded-pill">
+          <form id="log-in-form" class="my-5 rounded-pill"> -->
         <!-- I still need to change these class names and also nest properties of these  -->
-         <div class="user-name-container">
+         <!-- <div class="user-name-container">
           <input type="text" id="username" name="username" class="form-sign-up-user-name" value="" placeholder="Enter your user name">
         </div>
 
@@ -71,7 +71,7 @@
           <button id="logIn" name="button" type="submit" class="log-in-form-btn"> Submit </button>
           </form>
 
-    </div>
+    </div> -->
 
 
 
@@ -101,14 +101,11 @@
     <!-- start of nave bar, Nathans code, commented out, shall we
   delete it ??? -->
           <div class="header px-5 py-5 bg-white">
-              <img src="" class="img-thumbnial float-left" alt="logo">
-              <button type="submit" class="btn border border-primary float-right">Logout</button>
-
               <!-- Testing viewuserBtn (TO DELETE AFTER MERGE)  -->
               <button id="viewUserBtn" type="button" class="btn border border-primary my-5">View User</button>
               <button id="viewItemProfile" type="button" name="button" class="btn border border-primary my-5">View User Project</button>
           </div>
-          <!-- start of nave bar, Nathans code, commented out, shall we
+          <!-- end of nave bar, Nathans code, commented out, shall we
         delete it ??? -->
 
     <!-- profile section -->
@@ -187,7 +184,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="updateUserBtn" type="submit" class="btn btn-primary">Save changes</button>
+                    <button id="updateUserDetailsBtn" type="submit" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>
@@ -201,7 +198,9 @@
             <button id="addItemBtn" type="button" name="button" class="btn btn-lg btn-primary mt-5 mr-3 rounded-pill" data-toggle="modal" data-target="#itemModal">Add New Project</button>
 
           <!-- display items -->
-          <div id="itemsCard" class="row">
+          <div class="gallery-container">
+            <div id="itemsCard" class="row">
+            </div>
           </div>
 
           <!-- add new item modal -->
@@ -269,17 +268,17 @@
         <!-- testing login form (CAN DELETE AFTER MERGE)-->
         <!-- <form class="py-5 px-5">
           <div class="form-group">
-            <label for="username" class="text-light">Username</label>
-            <input type="email" class="form-control" id="username" aria-describedby="emailHelp">
+            <label for="username" class="text-dark">Username</label>
+            <input type="text" class="form-control" id="username" aria-describedby="username">
           </div>
           <div class="form-group">
-            <label for="email" class="text-light">Email address</label>
+            <label for="email" class="text-dark">Email address</label>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
           <div class="form-group">
-            <label for="password" class="text-light">Password</label>
+            <label for="password" class="text-dark">Password</label>
             <input type="password" class="form-control" id="password">
           </div>
-          <button id="logIn" type="submit" class="btn btn-primary text-light">Submit</button>
+          <button id="logIn" type="submit" class="btn btn-primary text-dark">Submit</button>
         </form> -->
         <!-- testing login form end -->
     <!-- </div> -->
