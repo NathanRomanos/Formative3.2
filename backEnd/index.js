@@ -8,7 +8,7 @@ const config = require('./config.json');//has credentials
 const User = require('./models/user.js'); //this refers to the structure for user ojects
 const Item = require('./models/item.js'); //this refers to the structure for product ojects
 
-const port = 8080; //set server port
+const port = 3000; //set server port
 
 //connect to db
 
@@ -76,18 +76,12 @@ app.post('/loginUser', (req,res)=>{
 });//post
 
 // display users
-app.get('/viewUser', (req, res)=> {
-  User.find().then(result => {
-    res.send(result);
-  });
-});
-
-// edit/update user
 app.get('/displayUsers', (req,res)=>{ //create request to show all products within Product
   User.find().then(result =>{ // finds Product db
   res.send(result); //print result
   })
 });
+
 
 //display user by id
 app.get('/displayUser/p=:id', (req,res)=>{ //create request to search products by id
@@ -99,13 +93,12 @@ app.get('/displayUser/p=:id', (req,res)=>{ //create request to search products b
   }
 });
 
-
 // delete user
 app.delete('/removeUser/:id', (req,res)=>{ //create request to delete a product
   const idParam = req.params.id; //set new reference idParam from last forward slash in request
   const user = req.params.userId;
     User.findOne({_id:idParam},(err, productResult)=>{ //search Product db for id
-    if (productResult) { //do this if present      
+    if (productResult) { //do this if present
       User.findOne({userId:user},(err,userResult2)=>{
           if (userResult2){
             User.deleteOne({_id:idParam},err=>{ //delete match
@@ -115,7 +108,7 @@ app.delete('/removeUser/:id', (req,res)=>{ //create request to delete a product
             res.send('wrong user');
           }
       });
-      
+
     } else { //if not found do this
       res.send('not found') //no match message
     }
