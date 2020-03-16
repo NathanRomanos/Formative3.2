@@ -93,6 +93,201 @@
 
     </div> <!-- home container ends -->
 
+<!-- newly added will cause conflict, start of whats been added -->
+    <!-- PEARLY PROFILE PAGE -->
+    <div class="profile-master-container">
+
+    <!-- header -->
+    <!-- start of nave bar, Nathans code, commented out, shall we
+  delete it ??? -->
+          <div class="header px-5 py-5 bg-white">
+              <img src="" class="img-thumbnial float-left" alt="logo">
+              <button type="submit" class="btn border border-primary float-right">Logout</button>
+
+              <!-- Testing viewuserBtn (TO DELETE AFTER MERGE)  -->
+              <button id="viewUserBtn" type="button" class="btn border border-primary my-5">View User</button>
+              <button id="viewItemProfile" type="button" name="button" class="btn border border-primary my-5">View User Project</button>
+          </div>
+          <!-- start of nave bar, Nathans code, commented out, shall we
+        delete it ??? -->
+
+    <!-- profile section -->
+          <div class="bg-white w-100">
+            <!-- image -->
+            <div class="d-flex justify-content-center px-5 py-5">
+              <img src="images/images.jpg" class="profile-img-size rounded-circle bg-dark img-thumbnail" alt="profile image"/>
+            </div>
+
+            <!-- info display -->
+            <div class="d-flex justify-content-center">
+              <form class="pb-5 w-25">
+                <div class="form-group row">
+                  <label for="usernameProfile" class="col-6 col-form-label text-right">Username:</label>
+                  <div class="col-6">
+                    <input type="text" class="form-control-plaintext font-weight-bold" id="usernameProfile" name="usernameProfile">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="userEmailProfile" class="col-6 col-form-label text-right">Email:</label>
+                  <div class="col-6">
+                    <input type="text" class="form-control-plaintext font-weight-bold" id="userEmailProfile" name="userEmailProfile">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="userPasswordProfile" class="col-sm-6 col-form-label text-right">Password:</label>
+                  <div class="col-6">
+                    <input type="password" class="form-control-plaintext font-weight-bold" id="userPasswordProfile" name="userPasswordProfile">
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center mx-5 pt-3">
+                  <button id="editUserBtn" type="button" class="btn btn-link border border-primary my-2" data-toggle="modal" data-target="#profileModal">Edit Profile</button>
+                </div>
+              </form>
+            </div> <!-- info display end  -->
+
+
+
+            <!-- Edit/update user/profile Modal -->
+            <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">Edit Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group row">
+                        <label for="userIdEdit" class="col-sm-6 col-form-label">User ID:</label>
+                        <div class="col-sm-6">
+                          <input type="text" readonly class="form-control-plaintext text-muted" id="userIdEdit" name="userIdEdit">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="usernameEdit" class="col-sm-6 col-form-label">New Username:</label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="usernameEdit" name="usernameEdit">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="userEmailEdit" class="col-sm-6 col-form-label">New Email:</label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="userEmailEdit" name="userEmailEdit">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="userPasswordEdit" class="col-sm-6 col-form-label">New Password:</label>
+                        <div class="col-sm-6">
+                          <input type="password" class="form-control" id="userPasswordEdit" name="userPasswordEdit">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="updateUserBtn" type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- edit user/profile modal end -->
+
+          </div>  <!-- profile section end -->
+
+
+    <!-- items section -->
+          <div class="container-fluid pl-5">
+            <button id="addItemBtn" type="button" name="button" class="btn btn-lg btn-primary mt-5 mr-3 rounded-pill" data-toggle="modal" data-target="#itemModal">Add New Project</button>
+
+          <!-- display items -->
+          <div id="itemsCard" class="row">
+          </div>
+
+          <!-- add new item modal -->
+          <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="itemModalLabel">Add New Project</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="addItemForm">
+                    <div class="form-group row">
+                      <label for="addUserId" class="col-sm-6 col-form-label">User ID:</label>
+                      <div class="col-sm-6">
+                        <input type="text" readonly class="form-control-plaintext text-muted" id="addUserId" name="addUserId">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="addItemName" class="col-sm-6 col-form-label">Project Name:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="addItemName" name="addItemNamee">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="addItemImgUrl" class="col-sm-6 col-form-label">Image URL:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="addItemImgUrl" name="addItemImgUrl">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="addItemAuthor" class="col-sm-6 col-form-label">Author:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="addItemAuthor" name="addItemAuthor">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="addItemDesc" class="col-sm-6 col-form-label">Description:</label>
+                      <div class="col-sm-6">
+                        <textarea class="form-control" id="addItemDesc" rows="3"></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="addItemLink" class="col-sm-6 col-form-label">Link:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="addItemLink" name="addItemLink">
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button id="submitAddItemBtn" type="submit" class="btn btn-primary">Add Project</button>
+                </div>
+
+              </div>
+            </div>
+          </div> <!-- add new item modal end -->
+
+        </div>  <!-- items section end -->
+
+
+        <!-- testing login form (CAN DELETE AFTER MERGE)-->
+        <!-- <form class="py-5 px-5">
+          <div class="form-group">
+            <label for="username" class="text-light">Username</label>
+            <input type="email" class="form-control" id="username" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label for="email" class="text-light">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+          <div class="form-group">
+            <label for="password" class="text-light">Password</label>
+            <input type="password" class="form-control" id="password">
+          </div>
+          <button id="logIn" type="submit" class="btn btn-primary text-light">Submit</button>
+        </form> -->
+        <!-- testing login form end -->
+    <!-- </div> -->
+    <!-- PEARLY PROFILE PAGE END -->
+    <!-- end of whats been added -->
+
+
+
 
     <script src="config.json"></script>
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
