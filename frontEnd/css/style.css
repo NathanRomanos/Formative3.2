@@ -58,8 +58,7 @@ p {
 }
 
 .gallery-container {
-  margin-top: 20vh;
-  padding: 2vw;
+  padding: 10vh 2vw 5vh 2vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -130,9 +129,6 @@ p {
   min-width: 30%;
   cursor: pointer;
 }
-.item-card .col .item-card-options button:hover {
-  transform: scale(1.1);
-}
 .item-card .col .photoShadow {
   width: 100%;
   height: 40px;
@@ -168,57 +164,59 @@ p {
 .home-nav {
   height: 7vh;
   width: 100%;
-  position: sticky;
   top: 0;
   left: 0;
   z-index: 100;
+  display: flex;
+  justify-content: space-between;
 }
 .home-nav .logo {
   height: 6vh;
   width: 18vw;
-  position: absolute;
-  top: 1vh;
-  left: 2vw;
+  margin: 0.8vh 0.8vw;
 }
 .home-nav .logo img {
   height: 5vh;
   cursor: pointer;
 }
+.home-nav .nav-right {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0.8vh 0.8vw;
+}
 .home-nav .view-users-btn {
   padding: 0.8vh 0.8vw;
-  position: absolute;
-  top: 1vh;
-  right: 7vw;
   text-align: center;
   border-radius: 20px;
   cursor: pointer;
 }
 .home-nav .login-btn {
-  padding: 1vh 1vw;
-  position: absolute;
-  top: 2vh;
-  right: 20vw;
+  padding: 0.8vh 0.8vw;
   text-align: center;
   border-radius: 20px;
   cursor: pointer;
 }
 .home-nav .sign-up-btn {
-  padding: 1vh 1vw;
-  position: absolute;
-  top: 2vh;
-  right: 10vw;
+  padding: 0.8vh 0.8vw;
   text-align: center;
   border-radius: 20px;
   cursor: pointer;
 }
+.home-nav #log-out-btn {
+  padding: 0.8vh 0.8vw;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+  display: none;
+  color: white;
+}
 .home-nav .profile-btn {
   height: 5vh;
   width: 5vh;
-  position: absolute;
-  top: 1vh;
-  right: 2vw;
   border-radius: 100%;
   cursor: pointer;
+  display: none;
 }
 .home-nav .profile-btn img {
   width: 100%;
@@ -226,19 +224,31 @@ p {
   border-radius: 100%;
 }
 
+#sign-up-form {
+  background-color: #333;
+  width: 100%;
+  height: 400px;
+  display: none;
+}
+
+#log-in-container {
+  background-color: #333;
+  width: 100%;
+  height: 300px;
+  display: none;
+}
+
 #sign-up-form input {
   background: none;
   border: none;
   outline: none;
   z-index: 50;
-  display: none;
 }
 
 #log-in-form input {
   background: none;
   border: none;
   outline: none;
-  display: none;
 }
 
 .user-name-container {
@@ -246,11 +256,12 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  top: 15%;
+  top: 20%;
   left: 30%;
   height: 50px;
   width: 400px;
-  box-shadow: -12px -12px 12px 0 rgba(58, 58, 58, 0.3), 12px 12px 12px 0 rgba(0, 0, 0, 0.2);
+  border: 2px solid white;
+  border-radius: 20px;
 }
 
 .email-container {
@@ -258,7 +269,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  top: 25%;
+  top: 30%;
   left: 30%;
   height: 50px;
   width: 400px;
@@ -271,10 +282,12 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  top: 35%;
+  top: 40%;
   left: 30%;
   height: 50px;
   width: 400px;
+  border: 2px solid white;
+  border-radius: 20px;
 }
 
 .form-sign-up-user-name {
@@ -315,8 +328,12 @@ p {
   border-radius: 10px;
   color: white;
   width: 100px;
-  top: 45%;
+  top: 50%;
   left: 30%;
+}
+
+.log-in-form-btn:hover {
+  border: 1px solid white;
 }
 
 .log-in-form-btn {
@@ -328,7 +345,7 @@ p {
   border-radius: 10px;
   color: white;
   width: 100px;
-  top: 35%;
+  top: 40%;
   left: 30%;
 }
 
@@ -349,13 +366,12 @@ p {
   height: 150px;
 }
 
-.profile-btn:hover, .view-users-btn:hover {
+.profile-btn:hover, .btn-1:hover {
   transform: scale(1.1);
 }
 
 .sign-up-form-btn:hover, .log-in-form-btn:hover {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
-  color: #AAF0D1;
+  transform: scale(1.1);
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,5 @@
 .gallery-container{
-  margin-top: 20vh;
-  padding: 2vw;
+  padding: 10vh 2vw 5vh 2vw;
   display: flex;
   flex-wrap: wrap;
   justify-content:  space-around;
@@ -83,10 +82,6 @@
       button{
         min-width: 30%;
         cursor: pointer;
-      }
-
-      button:hover{
-        transform: scale(1.1);
       }
 
     }

@@ -1,17 +1,16 @@
 .home-nav{
   height: 7vh;
   width: 100%;
-  position: sticky;
   top: 0;
   left: 0;
   z-index: 100;
+  display: flex;
+  justify-content: space-between;
 
   .logo{
     height: 6vh;
     width: 18vw;
-    position: absolute;
-    top: 1vh;
-    left: 2vw;
+    margin: 0.8vh 0.8vw;
 
     img{
       height: 5vh;
@@ -19,55 +18,48 @@
     }
   }
 
+  .nav-right{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    margin: 0.8vh 0.8vw;
+  }
+
   .view-users-btn{
     padding: 0.8vh 0.8vw;
-    position: absolute;
-    top: 1vh;
-    right: 7vw;
     text-align: center;
     border-radius: 20px;
     cursor: pointer;
   }
 
   .login-btn{
-    padding: 1vh 1vw;
-    position: absolute;
-    top: 2vh;
-    right: 20vw;
+    padding: 0.8vh 0.8vw;
     text-align: center;
     border-radius: 20px;
     cursor: pointer;
   }
 
   .sign-up-btn{
-    padding: 1vh 1vw;
-    position: absolute;
-    top: 2vh;
-    right: 10vw;
+    padding: 0.8vh 0.8vw;
     text-align: center;
     border-radius: 20px;
     cursor: pointer;
   }
 
-  //  #log-out-btn{
-  //   padding: 1vh 1vw;
-  //   position: absolute;
-  //   top: 2vh;
-  //   right: 10vw;
-  //   text-align: center;
-  //   border-radius: 20px;
-  //   cursor: pointer;
-  //   // display: none;
-  // }
-
+  #log-out-btn{
+   padding: 0.8vh 0.8vw;
+   text-align: center;
+   border-radius: 20px;
+   cursor: pointer;
+   display: none;
+   color: white;
+ }
   .profile-btn{
     height: 5vh;
     width: 5vh;
-    position: absolute;
-    top: 1vh;
-    right: 2vw;
     border-radius: 100%;
     cursor: pointer;
+    display: none;
 
     img{
       width: 100%;

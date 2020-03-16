@@ -18,65 +18,77 @@
       <div class="logo">
         <img src="images/logo.png" alt="">
       </div> <!-- logo ends -->
-      <div class="view-users-btn btn-1 text-medium">
-        View Users
-      </div>
-      <div class="profile-btn background-3">
-        <a href="profile.html"><img src="images/profile-pic.jpg" alt=""></a>
+      <div class="nav-right">
+        <div class="view-users-btn btn-1 text-medium">
+          View Users
+        </div>
+
+        <div id="login-btn" class="login-btn btn-1 text-medium">
+           Login
+         </div>
+
+          <div id="sign-up-btn" class="sign-up-btn btn-1 text-medium">
+           Sign Up
+         </div>
+
+          <div id="log-out-btn" class="sign-up-btn btn-1 text-medium">
+           Log Out
+         </div>
+
+        <div class="profile-btn background-3">
+          <a href="profile.html"><img src="images/profile-pic.jpg" alt=""></a>
+        </div>
       </div>
 
     </div> <!-- home nav ends -->
 
 
 
-     <!-- sign up / log in container -->
+    <!-- sign up / log in container -->
 
-    <div id="sign-up-container" class="">
-        <form id="sign-up-form" class="">
-
-
-            <div class="user-name-container">
-              <!-- <label for="r-username">Username</label> -->
-              <input type="text" name="r-username" class="form-sign-up-user-name" id="r-username" aria-describedby="emailHelp" placeholder="Enter a user name">
-            </div>
-
-            <div class="email-container">
-              <!-- <label for="r-email">Email</label> -->
-              <input type="email" autocomplete="" name="r-email" class="form-sign-up-email" id="r-email" placeholder="Enter an email">
-            </div>
-
-            <div class="password-container">
-              <input type="password" autocomplete="" name="r-password" class="form-sign-up-password" id="r-password" placeholder="enter a password">
-            </div>
-
-            <button id="r-submit" name="r-button" type="submit" class="sign-up-form-btn submit-btn-animation">Submit</button>
-
-          </form>
-    </div>
+      <div id="sign-up-container" class="">
+          <form id="sign-up-form" class="">
 
 
+              <div class="user-name-container">
+                <!-- <label for="r-username">Username</label> -->
+                <input type="text" name="r-username" class="form-sign-up-user-name" id="r-username" aria-describedby="emailHelp" placeholder="Enter a user name">
+              </div>
 
-      <div id="log-in-container" class="">
+              <div class="email-container">
+                <!-- <label for="r-email">Email</label> -->
+                <input type="email" autocomplete="" name="r-email" class="form-sign-up-email" id="r-email" placeholder="Enter an email">
+              </div>
 
-          <form id="log-in-form" class="my-5 rounded-pill">
-        <!-- I still need to change these class names and also nest properties of these  -->
-         <div class="user-name-container">
-          <input type="text" id="username" name="username" class="form-sign-up-user-name" value="" placeholder="Enter your user name">
-        </div>
+              <div class="password-container">
+                <input type="password" autocomplete="" name="r-password" class="form-sign-up-password" id="r-password" placeholder="enter a password">
+              </div>
 
-        <div class="password-container">
-          <input type="password" name="password" id="password" class="form-sign-up-email" value="" placeholder="Enter your password">
-        </div>
+              <button id="r-submit" name="r-button" type="submit" class="sign-up-form-btn submit-btn-animation">Submit</button>
 
-          <button id="logIn" name="button" type="submit" class="log-in-form-btn"> Submit </button>
-          </form>
-
-    </div>
+            </form>
+      </div>
 
 
 
+        <div id="log-in-container" class="">
 
-    <!-- end of sign up / log in container -->
+            <form id="log-in-form" class="my-5 rounded-pill">
+          <!-- I still need to change these class names and also nest properties of these  -->
+           <div class="user-name-container">
+            <input type="text" id="username" name="username" class="form-sign-up-user-name" value="" placeholder="Enter your user name">
+          </div>
+
+          <div class="email-container">
+            <input type="password" name="password" id="password" class="form-sign-up-email" value="" placeholder="Enter your password">
+          </div>
+
+            <button id="submit" name="button" type="submit" class="log-in-form-btn"> Submit </button>
+            </form>
+
+      </div>
+
+      <!-- end of sign up / log in container -->
 
 <!-- Gallery container -->
     <div id="galleryResult" class="gallery-container background-1">
