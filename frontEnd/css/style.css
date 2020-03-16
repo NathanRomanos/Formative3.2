@@ -57,6 +57,114 @@ p {
   padding: 5px;
 }
 
+.gallery-container {
+  margin-top: 20vh;
+  padding: 2vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.item-card {
+  width: 25vw;
+  margin: 2%;
+  position: relative;
+}
+.item-card .col {
+  background-color: white;
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+}
+.item-card .col .item-card-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  width: 100%;
+  padding: 2%;
+}
+.item-card .col .item-card-menu-btn {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  width: 2vw;
+  cursor: pointer;
+  z-index: 20;
+}
+.item-card .col .item-card-menu-btn:hover {
+  transform: scale(1.1);
+}
+.item-card .col .item-card-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2%;
+  z-index: 15;
+}
+.item-card .col .item-card-menu p {
+  width: 100%;
+  text-align: right;
+  cursor: pointer;
+}
+.item-card .col .item-card-menu p:hover {
+  transform: scale(1.1);
+}
+.item-card .col .item-card-options {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2%;
+  z-index: 15;
+}
+.item-card .col .item-card-options button {
+  min-width: 30%;
+  cursor: pointer;
+}
+.item-card .col .item-card-options button:hover {
+  transform: scale(1.1);
+}
+.item-card .col .photoShadow {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background: linear-gradient(to bottom, rgba(76, 76, 76, 0) 0, rgba(19, 19, 19, 0.5) 100%);
+}
+.item-card .item-card-text {
+  width: 100%;
+  padding: 2%;
+}
+.item-card .item-card-text h4 {
+  margin-bottom: 30px;
+}
+.item-card .item-card-text .item-card-link {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+}
+
+.item-card:hover {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+.item-card-link:hover {
+  transform: scale(1.1);
+}
+
 .home-nav {
   height: 7vh;
   width: 100%;
@@ -236,68 +344,13 @@ p {
   display: none;
 }
 
-.home-container {
-  margin-top: 20vh;
-  padding: 2vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.home-card {
-  width: 25vw;
-  margin: 2%;
-  position: relative;
-}
-.home-card .col {
-  background-color: white;
-  position: relative;
-  padding-left: 0;
-  padding-right: 0;
-}
-.home-card .col .home-item-title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 15;
-  width: 100%;
-  padding: 2%;
-}
-.home-card .col .photoShadow {
-  width: 100%;
-  height: 40px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
-  background: linear-gradient(to bottom, rgba(76, 76, 76, 0) 0, rgba(19, 19, 19, 0.5) 100%);
-}
-.home-card .home-item-text {
-  width: 100%;
-  padding: 2%;
-}
-.home-card .home-item-text h4 {
-  margin-bottom: 30px;
-}
-.home-card .home-item-text .home-item-link {
-  position: absolute;
-  bottom: 2%;
-  right: 2%;
-}
-
 .profile-img-size {
   width: 150px;
   height: 150px;
 }
 
-.home-card:hover {
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.8);
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
-}
-
 .profile-btn:hover, .view-users-btn:hover {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
 }
 
 .sign-up-form-btn:hover, .log-in-form-btn:hover {

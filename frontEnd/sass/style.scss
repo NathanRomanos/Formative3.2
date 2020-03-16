@@ -1,7 +1,7 @@
 @import "reset";
 @import "variables";
 @import "styling";
-@import "home";
+@import "gallery";
 @import "nav";
 
 // form styling
@@ -144,65 +144,7 @@
 
 
 
-.home-container{
-  margin-top: 20vh;
-  padding: 2vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:  space-around;
-}
 
-.home-card{
-  width: 25vw;
-  margin: 2%;
-  position: relative;
-
-
-  .col{
-    background-color: white;
-    position: relative;
-    padding-left: 0;
-    padding-right: 0;
-
-    .home-item-title{
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 15;
-      width: 100%;
-      padding: 2%;
-
-    }
-
-    .photoShadow {
-      width: 100%;
-      height: 40px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 10;
-      background: linear-gradient(to bottom, rgba(76,76,76,0) 0, rgba(19,19,19,0.5) 100%);
-    }
-
-  } //col ends here
-
-  .home-item-text{
-    width: 100%;
-    padding: 2%;
-
-    h4{
-      margin-bottom: 30px;
-    }
-
-    .home-item-link{
-      position: absolute;
-      bottom: 2%;
-      right: 2%;
-    }
-
-  }
-
-} //home card ends
 
 
 //profile page
@@ -214,21 +156,16 @@
 
 
 //hovers
-.home-card:hover{
-  // opacity: 0.8;
-  box-shadow: $shadow-1;
-  background-color: rgba(0,0,0,0.4);
-  color: white;
-}
 
 .profile-btn:hover, .view-users-btn:hover{
-  box-shadow: $shadow-2;
+  transform: scale(1.1);
 }
 
 .sign-up-form-btn:hover, .log-in-form-btn:hover{
   box-shadow: $shadow-2;
   color:#AAF0D1;
 }
+
 
 
 // animation for submin button

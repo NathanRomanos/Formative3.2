@@ -135,6 +135,8 @@ $('#viewUserBtn').click(function(){ // assign button
     });//ajax
 });//viewUser button
 
+$('.item-card-menu, .menu-close').hide();
+// $('')
 //Home page gallery
   $.ajax({
      url :`${url}/viewItem`,
@@ -145,16 +147,16 @@ $('#viewUserBtn').click(function(){ // assign button
        document.getElementById('galleryResult').innerHTML = "";
        for (var i = 0; i < viewData.length; i++) {
          document.getElementById('galleryResult').innerHTML +=
-        `<div class="home-card background-3">
+        `<div class="item-card background-3">
           <div class="col">
             <img class="card-img-top" alt="item image should go here" src="${viewData[i].imgUrl}">
-            <h2 class="home-item-title text-item">${viewData[i].name}</h2>
+            <h2 class="item-card-title text-item">${viewData[i].name}</h2>
             <div class="photoShadow"></div>
           </div>
-          <div class="home-item-text">
+          <div class="item-card-text">
             <p>${viewData[i].description}</p>
             <p class="text-medium">By ${viewData[i].author}</p>
-            <a class="home-item-link" href="${viewData[i].link}" target="_blank"><button class="btn-1" type="button" name="button">View website link</button></a>
+            <a class="item-card-link" href="${viewData[i].link}" target="_blank"><button class="btn-1" type="button" name="button">View website link</button></a>
           </div>
         </div> `;
        }
