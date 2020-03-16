@@ -190,7 +190,22 @@ app.delete('/deleteItem/:id',(req,res) => {
   }).catch(err => res.send(err));
 });
 
+// edit/update user
+app.patch('/updateUser/:id',(req,res)=> {
+  const idParam = req.params.id;
+  User.findById(idParam,(err,item)=> {
+    const hash = bcryptjs.hashSync(req.body.password); //hash the password
+    const updatedUser = {
+      username:req.body.username,
+      email : req.body.email,
+      password : hash
 
+    };
+    User.updateOne({_id:idParam}, updatedUser).then(result => {
+      res.send(result);
+    }).catch(err => res.send(err));
+  }).catch(err => res.send('not found'));
+});
 
 //keep this always at the bottom so that you can see the errors reported
 app.listen(port, () => console.log(`Mongodb app listening on port ${port}!`))
