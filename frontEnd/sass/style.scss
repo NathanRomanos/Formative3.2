@@ -1,12 +1,25 @@
 @import "reset";
 @import "variables";
 @import "styling";
-@import "home";
+@import "gallery";
 @import "nav";
 
 // form styling
 // make errors come up testing different styling on errors
 
+#sign-up-form{
+  background-color: #333;
+  width: 100%;
+  height: 400px;
+  display: none;
+}
+
+#log-in-container{
+    background-color: #333;
+  width: 100%;
+  height: 300px;
+  display:none;
+}
 
  #sign-up-form input{
   background: none;
@@ -26,11 +39,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  top: 15%;
+  top: 20%;
   left: 30%;
   height:50px;
   width:400px;
-  box-shadow:  -12px -12px 12px 0 rgba(58, 58, 58, 0.3),12px 12px 12px 0 rgba(0,0,0,.2);
+  border: 2px solid white;
+  border-radius: 20px;
 }
 
 .email-container{
@@ -38,7 +52,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  top: 25%;
+  top: 30%;
   left: 30%;
   height:50px;
   width:400px;
@@ -51,11 +65,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  top: 35%;
+  top: 40%;
   left: 30%;
   height:50px;
   width:400px;
-  // box-shadow:  -12px -12px 12px 0 rgba(58, 58, 58, 0.3),12px 12px 12px 0 rgba(0,0,0,.2);
+  border: 2px solid white;
+  border-radius: 20px;
 }
 
 .form-sign-up-user-name{
@@ -97,10 +112,15 @@
   border-radius: 10px;
   color: white;
   width: 100px;
-  top: 45%;
+  top: 50%;
   left: 30%;
   // transform: translate(-25%,-40%);
 }
+
+
+  .log-in-form-btn:hover{
+    border:1px solid white;
+  }
 
 .log-in-form-btn{
    background: none;
@@ -111,7 +131,7 @@
   border-radius: 10px;
   color: white;
   width: 100px;
-  top: 35%;
+  top: 40%;
   left: 30%;
   // transform: translate(-25%,-40%);
 }
@@ -149,49 +169,8 @@
 
 
 
-.home-container{
-  margin-top: 20vh;
-  padding: 0 2vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:  space-around;
-}
 
-.home-card{
-  width: 20vw;
-  height: 24vw;
-  margin-top: 4vh;
 
-  .home-item{
-    width: 20vw;
-    height: 20vw;
-    position: relative;
-    border-radius: 2rem;
-    background-color: $color-2;
-    cursor: pointer;
-
-    img{
-      width: 100%;
-      height: 100%;
-      border-radius: 2rem;
-    }
-
-    p{
-      position: absolute;
-      bottom: 2%;
-      left: 2%;
-      margin: 0;
-    } // p ends
-
-  } //home item ends
-
-  .home-link{
-    width: 40%;
-    height: 2vw;
-    margin: 0.5vw 0;
-  } // home link ends
-
-} // home card ends
 
 //profile page
 .profile-img-size {
@@ -202,45 +181,11 @@
 
 
 //hovers
-.home-item:hover{
-  // opacity: 0.8;
-  box-shadow: $shadow-1;
-}
 
-.profile-btn:hover, .view-users-btn:hover{
-  box-shadow: $shadow-2;
+.profile-btn:hover, .btn-1:hover{
+  transform: scale(1.1);
 }
 
 .sign-up-form-btn:hover, .log-in-form-btn:hover{
-  box-shadow: $shadow-2;
-  color:#AAF0D1;
+  transform: scale(1.1);
 }
-
-
-// animation for submin button
-
-
-//trigger animation have to add and remove class to animate through jquery
-// .submit-btn-animation{
-//   animation: shake 2s ease;
-// }
-
-// @keyframes shake{
-//   0%{
-//     transform: translate(-50%,-50%) rotate(0deg);
-//   }
-//   25%{
-//     transform: translate(-50%,-50%) rotate(3deg);
-//   }
-//   50%{
-//     transform: translate(-50%,-50%) rotate(0deg);
-//   }
-//   75%{
-//     transform: translate(-50%,-50%) rotate(3deg);
-//   }
-//   100%{
-//     transform: translate(-50%,-50%) rotate(0deg);
-//   }
-// }
-
-// end of animation for submin button
