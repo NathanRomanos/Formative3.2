@@ -21,7 +21,6 @@
   display:none;
 }
 
-
  #sign-up-form input{
   background: none;
   border: none;
@@ -147,17 +146,23 @@
 
 // form / containers display properties
 #log-in-container{
+    background-color: #333;
+  width: 100%;
+  height: 600px;
   display:none;
 }
 
 #sign-up-form{
+  background-color: #333;
+  width: 100%;
+  height: 600px;
   display: none;
 }
 //could have home container display none when forms are clicked
 // when i tried this it made cards go into one colum
-#home-container{
-  display: none;
-}
+// #home-container{
+//   display: none;
+// }
 
 //end of form / containers display properties
 

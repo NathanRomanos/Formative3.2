@@ -170,6 +170,7 @@ p {
   top: 0;
   left: 0;
   z-index: 100;
+
   display: flex;
   justify-content: space-between;
 }
@@ -199,6 +200,7 @@ p {
   text-align: center;
   border-radius: 20px;
   cursor: pointer;
+  color: white;
 }
 .home-nav .sign-up-btn {
   padding: 0.8vh 0.8vw;
@@ -206,6 +208,7 @@ p {
   text-align: center;
   border-radius: 20px;
   cursor: pointer;
+  color: white;
 }
 .home-nav #log-out-btn {
   padding: 0.8vh 0.8vw;

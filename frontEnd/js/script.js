@@ -75,11 +75,105 @@ $('#log-out-btn').click(function(){
   $('#profileBtn').hide();
 })
 
+
 $('#sign-up-btn').click(function(){
     $('#sign-up-form').show();
     $('#log-in-container').hide();
 });
 
+    // activates the server side of things
+    // showing error on line two of config.json file
+    $.ajax({
+      url :`${url}/signUp`,
+      type :'POST',
+      data:{
+        username : username,
+        email : email,
+        password : password
+        },
+      success : function(user){
+        console.log(user);
+        if (!(user == 'username taken already. Please try another one')) {
+          // alert('please log in');
+          $('#log-in-container').show();
+          $('#sign-up-container').hide();
+        } else {
+          alert('username taken already. Please try another one');
+          $('#r-username').val('');
+          $('#r-email').val('');
+          $('#r-password').val('');
+        }
+      },//success
+      error:function(){
+        console.log('error: cannot call api');
+      }//error
+    });//ajax
+
+  }//else
+});//submit function for registerForm
+
+  // end of sign up form 
+
+  // start of log in form 
+
+$('#log-in-form').submit(function(){
+  event.preventDefault();
+
+  let username = $('#username').val();
+  let password = $('#password').val();
+
+  console.log(username, password);
+
+  if (username == '' || password == ''){
+    alert('Please enter all details');
+  } else {
+
+  $.ajax({
+    url :`${url}/loginUser`,
+    type :'POST',
+    data:{
+      username : username,
+      password : password
+      },
+
+    success : function(user){
+      console.log(user);
+      if (user == 'user not found. Please register'){
+      alert('user not found. Please enter correct data or register a new user');
+
+      } else if (user == 'not authorized'){
+        alert('Please try with correct details');
+        $('#username').val('');
+        $('#password').val('');
+      } else{
+        
+         $('#log-in-container').hide();
+         $('#log-out-btn').show();
+         // when shown after login/sign up forms colums of home-container display in one col
+         $('#home-container').show();
+        sessionStorage.setItem('userID', user['_id']);
+        sessionStorage.setItem('userName',user['username']);
+        sessionStorage.setItem('userEmail',user['email']);
+        console.log(sessionStorage);
+      }
+    },//success
+    error:function(){
+      console.log('error: cannot call api');
+    }//error
+  });//ajax
+
+}//else
+});//submit function for login loginForm
+
+
+// logout Btn
+$('#log-out-btn').click(function(){
+  console.log('You are logged out');
+  sessionStorage.clear();
+  $('#log-out-btn').hide();
+  $('#sign-up-btn').show();
+  console.log(sessionStorage);
+});
 
 $('#login-btn').click(function(){
     $('#log-in-container').show();
@@ -210,8 +304,8 @@ $('#updateUserDetailsBtn').click(function(){
       console.log('error: cannot call api');
     }//error
 
-  });//ajax
-} //else
+    });//ajax
+  } //else
 });//update user function for Edit User Form
 
 
@@ -463,8 +557,7 @@ $('.item-card-menu, .menu-close').hide();
      error:function (){
        console.log('oops');
      }
+
  }); //ajax ends
-
-
 
 });//document ready function ends
