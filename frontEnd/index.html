@@ -10,16 +10,16 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Formative3.2</title>
   </head>
-  <body class="background-2">
+  <body class="background-1">
 
 <!-- Navigation bar -->
     <div class="home-nav background-2">
 
-      <div class="logo">
+      <div id="logo" class="logo">
         <img src="images/logo.png" alt="">
       </div> <!-- logo ends -->
       <div class="nav-right">
-        <div class="view-users-btn btn-1 text-medium">
+        <div id="view-users-btn" class="view-users-btn btn-1 text-medium">
           View Users
         </div>
 
@@ -35,8 +35,8 @@
            Log Out
          </div>
 
-        <div class="profile-btn background-3">
-          <a href="profile.html"><img src="images/profile-pic.jpg" alt=""></a>
+        <div id="profileBtn" class="profile-btn background-3">
+        <img src="images/profile-pic.jpg" alt="">
         </div>
       </div>
 
@@ -70,7 +70,7 @@
             </form>
       </div>
 
-     
+
         <div id="log-in-container" class="">
 
             <form id="log-in-form" class="my-5 rounded-pill">
@@ -90,7 +90,7 @@
 
       <!-- end of sign up / log in container -->
 
-<!-- Gallery container -->
+<!-- Home Gallery container -->
     <div id="galleryResult" class="gallery-container background-1">
 
       <div class="item-card background-3">
@@ -129,22 +129,14 @@
         </div>
       </div>
 
-    </div> <!-- home container ends -->
+    </div> <!-- home gallery container ends -->
 
 <!-- newly added will cause conflict, start of whats been added -->
     <!-- PEARLY PROFILE PAGE -->
     <div class="profile-master-container">
 
     <!-- header -->
-    <!-- start of nave bar, Nathans code, commented out, shall we
-  delete it ??? -->
-          <div class="header px-5 py-5 bg-white">
-              <!-- Testing viewuserBtn (TO DELETE AFTER MERGE)  -->
-              <button id="viewUserBtn" type="button" class="btn border border-primary my-5">View User</button>
-              <button id="viewItemProfile" type="button" name="button" class="btn border border-primary my-5">View User Project</button>
-          </div>
-          <!-- end of nave bar, Nathans code, commented out, shall we
-        delete it ??? -->
+    <!-- start of nave bar, Nathans code, commented out, shall we-->
 
     <!-- profile section -->
           <div class="bg-white w-100">
@@ -154,7 +146,7 @@
             </div>
 
             <!-- info display -->
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center text-dark">
               <form class="pb-5 w-25">
                 <div class="form-group row">
                   <label for="usernameProfile" class="col-6 col-form-label text-right">Username:</label>
@@ -187,7 +179,7 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="profileModalLabel">Edit Profile</h5>
+                    <h5 class="modal-title text-dark" id="profileModalLabel">Edit Profile</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -195,25 +187,25 @@
                   <div class="modal-body">
                     <form>
                       <div class="form-group row">
-                        <label for="userIdEdit" class="col-sm-6 col-form-label">User ID:</label>
+                        <label for="userIdEdit" class="col-sm-6 col-form-label text-dark">User ID:</label>
                         <div class="col-sm-6">
                           <input type="text" readonly class="form-control-plaintext text-muted" id="userIdEdit" name="userIdEdit">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="usernameEdit" class="col-sm-6 col-form-label">New Username:</label>
+                        <label for="usernameEdit" class="col-sm-6 col-form-label text-dark">New Username:</label>
                         <div class="col-sm-6">
                           <input type="text" class="form-control" id="usernameEdit" name="usernameEdit">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="userEmailEdit" class="col-sm-6 col-form-label">New Email:</label>
+                        <label for="userEmailEdit" class="col-sm-6 col-form-label text-dark">New Email:</label>
                         <div class="col-sm-6">
                           <input type="text" class="form-control" id="userEmailEdit" name="userEmailEdit">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="userPasswordEdit" class="col-sm-6 col-form-label">New Password:</label>
+                        <label for="userPasswordEdit" class="col-sm-6 col-form-label text-dark">New Password:</label>
                         <div class="col-sm-6">
                           <input type="password" class="form-control" id="userPasswordEdit" name="userPasswordEdit">
                         </div>
@@ -231,18 +223,18 @@
           </div>  <!-- profile section end -->
 
 
+
     <!-- items section -->
           <div class="container-fluid pl-5">
             <button id="addItemBtn" type="button" name="button" class="btn btn-lg btn-primary mt-5 mr-3 rounded-pill" data-toggle="modal" data-target="#itemModal">Add New Project</button>
 
           <!-- display items -->
-          <div class="gallery-container">
-            <div id="itemsCard" class="row">
+
+            <div id="itemsCard" class="gallery-container background-1">
             </div>
-          </div>
 
           <!-- add new item modal -->
-          <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
+          <div class="modal fade text-dark" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -301,6 +293,8 @@
           </div> <!-- add new item modal end -->
 
         </div>  <!-- items section end -->
+
+      </div> <!--Profile master container ends here-->
 
 
         <!-- testing login form (CAN DELETE AFTER MERGE)-->
