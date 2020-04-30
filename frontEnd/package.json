@@ -6,7 +6,7 @@
   "dependencies": {
     "@popperjs/core": "^2.1.0",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.0"
   },
   "devDependencies": {
     "grunt": "^1.0.4",
